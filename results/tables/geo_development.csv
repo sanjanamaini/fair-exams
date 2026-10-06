@@ -1,0 +1,33 @@
+variant,outcome,units,rho,lo,hi
+all units,mean_marks,517,0.4776,0.4125,0.5381
+all units,top1_rate,517,0.1779,0.08991,0.261
+all units,ge_med_share,517,0.5091,0.4429,0.5682
+all units,top1_rate vs women_literate,517,0.1313,,
+all units,top1_rate vs women_school10,517,0.1686,,
+all units,top1_rate vs electricity,517,0.1122,,
+all units,top1_rate vs sanitation,517,0.1853,,
+all units,top1_rate vs clean_fuel,517,0.117,,
+certain mappings only,mean_marks,510,0.4706,0.4054,0.5333
+certain mappings only,top1_rate,510,0.1698,0.08486,0.2518
+certain mappings only,ge_med_share,510,0.5022,0.439,0.5605
+certain mappings only,top1_rate vs women_literate,510,0.1277,,
+certain mappings only,top1_rate vs women_school10,510,0.1627,,
+certain mappings only,top1_rate vs electricity,510,0.1064,,
+certain mappings only,top1_rate vs sanitation,510,0.1789,,
+certain mappings only,top1_rate vs clean_fuel,510,0.1093,,
+without Kota and Sikar,mean_marks,515,0.4779,0.4113,0.5388
+without Kota and Sikar,top1_rate,515,0.1764,0.08951,0.2636
+without Kota and Sikar,ge_med_share,515,0.5096,0.4419,0.5718
+without Kota and Sikar,top1_rate vs women_literate,515,0.132,,
+without Kota and Sikar,top1_rate vs women_school10,515,0.1683,,
+without Kota and Sikar,top1_rate vs electricity,515,0.1095,,
+without Kota and Sikar,top1_rate vs sanitation,515,0.1832,,
+without Kota and Sikar,top1_rate vs clean_fuel,515,0.1154,,
+"units with 1,000+ candidates",mean_marks,417,0.4584,0.3841,0.5271
+"units with 1,000+ candidates",top1_rate,417,0.1841,0.09135,0.2736
+"units with 1,000+ candidates",ge_med_share,417,0.491,0.419,0.5529
+"units with 1,000+ candidates",top1_rate vs women_literate,417,0.1594,,
+"units with 1,000+ candidates",top1_rate vs women_school10,417,0.1652,,
+"units with 1,000+ candidates",top1_rate vs electricity,417,0.09984,,
+"units with 1,000+ candidates",top1_rate vs sanitation,417,0.2406,,
+"units with 1,000+ candidates",top1_rate vs clean_fuel,417,0.06262,,

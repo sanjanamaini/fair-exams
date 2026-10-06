@@ -17,6 +17,7 @@ import json
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 from scipy import stats
@@ -77,20 +78,27 @@ def main() -> None:
         numbers[k + "_regshare"] = float(r.regional_share)
     (TABLES / "medium_numbers.json").write_text(json.dumps(numbers, indent=1, default=float))
 
-    fig, ax = plt.subplots(figsize=(6.4, 3.8))
-    ax.scatter(reg["regional_share"] * 100, reg["icc_marks"], color="#1F3A5F", s=22, label="offers a regional medium")
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.2, 4.2), gridspec_kw={"width_ratios": [1.1, 1]})
+    o = out.sort_values("icc_marks")
+    colours = ["#1F3A5F" if v else "#C9A227" for v in o["offers_regional"]]
+    a1.barh([s.title().replace(" (Ut)", "") for s in o["state"]], o["icc_marks"], color=colours)
+    a1.set_xlabel("ICC of marks among centres within cities", fontsize=7)
+    a1.tick_params(labelsize=6)
+    a1.set_title("How far allotment departs from a lottery", fontsize=8)
+    a1.legend(handles=[Patch(color="#1F3A5F", label="offers a regional-language paper"),
+                       Patch(color="#C9A227", label="English and Hindi only")],
+              frameon=False, fontsize=6, loc="lower right")
+    a2.scatter(reg["regional_share"] * 100, reg["icc_marks"], color="#1F3A5F", s=20)
     for r in reg.itertuples():
-        ax.annotate(r.state.title().replace(" (Ut)", ""), (r.regional_share * 100, r.icc_marks), fontsize=6,
-                    xytext=(3, 2), textcoords="offset points")
-    ax.scatter(np.zeros(len(hindi)) - 4, hindi["icc_marks"], color="#C9A227", s=22, marker="s",
-               label="English and Hindi only (Hindi share unknown)")
-    for r in hindi.itertuples():
-        ax.annotate(r.state.title(), (-4, r.icc_marks), fontsize=5.5, xytext=(-4, 0), textcoords="offset points",
-                    ha="right")
-    ax.set_xlim(-14, 72)
-    ax.set_xlabel("Share of the state's 2024 registrants who chose a regional-language paper (%)")
-    ax.set_ylabel("Intra-class correlation of marks\namong centres within cities")
-    ax.legend(frameon=False, fontsize=7, loc="upper right")
+        if r.regional_share > 0.05:
+            a2.annotate(r.state.title(), (r.regional_share * 100, r.icc_marks), fontsize=6.5,
+                        xytext=(-4, 5), textcoords="offset points", ha="right" if r.regional_share > 0.5 else "left")
+    a2.annotate("Kerala, Karnataka, Maharashtra,\nOdisha, Andhra Pradesh, Telangana,\nPunjab, Delhi (all under 2%)",
+                (1.5, 0.002), xytext=(12, 0.012), fontsize=6, arrowprops={"arrowstyle": "-", "color": "#999"})
+    a2.set_xlabel("Registrants choosing a regional-language paper (%)", fontsize=7)
+    a2.set_ylabel("ICC of marks", fontsize=7)
+    a2.tick_params(labelsize=6)
+    a2.set_title("Spearman %.2f across the %d states offering one" % (rho_s, len(reg)), fontsize=8)
     fig.tight_layout()
     fig.savefig(FIGURES / "state_allotment.png", dpi=200)
     plt.close(fig)
