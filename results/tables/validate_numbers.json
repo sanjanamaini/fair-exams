@@ -130,6 +130,8 @@
  "funnel_tau2": 1.7686101734900045e-05,
  "funnel_pi": 0.009941872874665369,
  "funnel_cities": 552,
+ "published_exact_matches": 4,
+ "published_items": 5,
  "nat_top01_share_of_top1": 0.1005345749267115,
  "flags_lower_half_shift_positive": 9,
  "flags_lower_half_shift_median": 27.125

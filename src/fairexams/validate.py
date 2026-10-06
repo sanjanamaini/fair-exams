@@ -82,6 +82,18 @@ def main() -> None:
     pd.DataFrame(rows).to_csv(TABLES / "validation_court_cities.csv", index=False, float_format="%.4g")
     numbers.update({"funnel_tau2": tau2, "funnel_pi": pi, "funnel_cities": int(len(ci))})
 
+    # Other published figures the file must reproduce.
+    pub = pd.read_csv(VALIDATION / "published_figures.csv")
+    m = cand["marks"]
+    ours = {"appeared": int(len(cand)), "centres": int(cand["code"].nunique()),
+            "cities_including_abroad": int(city.shape[0]), "candidates_700_or_more": int((m >= 700).sum()),
+            "candidates_on_720_before_revision": int((m == 720).sum())}
+    pub["ours"] = pub["item"].map(ours)
+    pub["diff"] = pub["ours"] - pub["value"]
+    pub.to_csv(TABLES / "validation_published.csv", index=False)
+    numbers["published_exact_matches"] = int((pub["diff"] == 0).sum())
+    numbers["published_items"] = int(len(pub))
+
     # 3. Profiles of flagged centres: distribution against the rest of the city, and top-end shape.
     flagged = scr[scr["q_excess"] <= FDR_Q]
     tail_flag = tail[tail["flag_tail"]]
