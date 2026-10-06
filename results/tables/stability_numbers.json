@@ -1,0 +1,13 @@
+{
+ "stab_seeds": 50,
+ "stab_any_flag": 11,
+ "stab_flag_majority": 8,
+ "stab_flag_95": 6,
+ "stab_registered_min_rate": 0.18,
+ "stab_registered_all_seeds": 6,
+ "stab_tail_any": 13,
+ "stab_tail_majority": 5,
+ "stab_tail_95": 3,
+ "stab_rk_unit1_rate": 1.0,
+ "stab_rk_unit1_tail_rate": 1.0
+}

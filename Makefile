@@ -22,6 +22,7 @@ integrity:
 	$(PY) -m fairexams.verify --flagged
 	$(PY) -m fairexams.serial
 	$(PY) -m fairexams.bulk
+	$(PY) -m fairexams.stability
 	$(PY) -m fairexams.medium
 	$(PY) -m fairexams.inject
 	$(PY) -m fairexams.validate

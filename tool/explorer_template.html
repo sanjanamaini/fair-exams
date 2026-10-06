@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fair Exams Explorer</title>
+<meta name="description" content="Every NEET-UG 2024 exam centre tested against its own city: flags, hub cities and how random allotment is, state by state.">
+<style>
+:root{--bg:#f7f6f2;--card:#ffffff;--ink:#1c2430;--muted:#5d6876;--line:#dfe3e8;--accent:#1F3A5F;--gold:#C9A227;--warn:#a1442f;--soft:#eef1f5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11161d;--card:#18202a;--ink:#e8edf2;--muted:#9aa7b4;--line:#2a3542;--accent:#8fb3dc;--gold:#e0bf4f;--warn:#e08a74;--soft:#1f2934}}
+:root[data-theme="dark"]{--bg:#11161d;--card:#18202a;--ink:#e8edf2;--muted:#9aa7b4;--line:#2a3542;--accent:#8fb3dc;--gold:#e0bf4f;--warn:#e08a74;--soft:#1f2934}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:26px;margin:4px 0 2px;color:var(--accent)}
+h2{font-size:18px;margin:18px 0 8px}
+.sub{color:var(--muted);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:120px}
+.chip b{display:block;font-size:20px;color:var(--accent)}
+.chip span{font-size:12px;color:var(--muted)}
+.note{background:var(--soft);border-left:3px solid var(--gold);padding:10px 12px;border-radius:6px;font-size:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 10px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer;font-size:14px}
+.tabs button.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+input[type=search]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:15px}
+.list{list-style:none;margin:8px 0 0;padding:0}
+.list li{padding:8px 10px;border-bottom:1px solid var(--line);cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.list li:hover{background:var(--soft)}
+.list small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:10px 0}
+.kv{background:var(--soft);border-radius:8px;padding:8px 10px}
+.kv span{display:block;font-size:12px;color:var(--muted)}
+.kv b{font-size:16px}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.b-flag{background:var(--gold);color:#1c2430}
+.b-tail{background:var(--warn);color:#fff}
+.b-hub{background:var(--accent);color:var(--bg)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:12px}
+td.n,th.n{text-align:right}
+tr.click{cursor:pointer}
+tr.click:hover{background:var(--soft)}
+.scroll{overflow-x:auto}
+svg text{fill:var(--muted);font-size:10px}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+.hide{display:none}
+.theme{float:right;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<button class="theme" id="theme" aria-label="Toggle colour theme">Theme</button>
+<h1>Fair Exams Explorer</h1>
+<p class="sub">NEET-UG 2024, the only year the National Testing Agency published every candidate's marks centre by centre (by Supreme Court order). Every centre is tested against the rest of its own city.</p>
+<div class="chips" id="chips"></div>
+<div class="note">A flag means a centre's results are unlikely if candidates were allotted to centres at random within the city. It is a reason to review, never evidence of misconduct: a stronger cohort allotted together (by paper medium, school or registration batch) produces the same signal.</div>
+<div class="tabs" role="tablist">
+<button data-t="search" class="on">Find a centre or city</button><button data-t="flags">Flags</button><button data-t="hubs">Hub cities</button><button data-t="states">Allotment by state</button><button data-t="about">Method</button>
+</div>
+<section id="t-search">
+<input type="search" id="q" placeholder="Type a city, a centre name or a centre code (for example Sikar, Oasis, 220701)" autocomplete="off">
+<p class="muted" style="font-size:13px;margin:8px 0 0">Start with: <a href="#c=220701">R.K. University Unit-1, Rajkot</a> (the one centre on both lists) &middot; <a href="#c=260402">Oasis School, Hazaribagh</a> (where the 2024 paper leaked) &middot; <a href="#c=220502">Jay Jalaram School, Godhra</a> (a foiled plan) &middot; <a href="#city=SIKAR">Sikar</a> (the largest hub)</p>
+<ul class="list" id="res"></ul>
+<div id="view"></div>
+</section>
+<section id="t-flags" class="hide"></section>
+<section id="t-hubs" class="hide"></section>
+<section id="t-states" class="hide"></section>
+<section id="t-about" class="hide">
+<div class="card">
+<h2>What each number means</h2>
+<p><b>Expected</b>: top-1% scorers the centre would have, on average, if its candidates were a random draw from its city. <b>z (adjusted)</b>: how far the actual count sits from that, in standard errors, after widening for how non-random allotment is nationally (the Kish design effect). <b>q</b>: false discovery rate across all 4,656 centres tested; flags are q of 0.05 or less. <b>Tail beyond the bulk</b>: whether the centre has more top scorers than its own middle half predicts. A stronger cohort shifts the whole distribution; a boost to some candidates shifts only the top. <b>Stability</b>: share of 50 random seeds that flag the centre (the tests use randomised p-values).</p>
+<p>Single-centre cities cannot be tested within the city. Leaks sold before the exam to candidates spread across a city are invisible to any within-city test; they need between-city comparison or item-level answer-similarity analysis, which only NTA can run.</p>
+<p>Full method, pre-registration and every number's source: the report (<a href="../report/report.pdf">report.pdf</a>) and the repository. Data: NTA centre-wise results (20 July 2024), verified against NTA's own PDFs.</p>
+</div>
+</section>
+<p class="muted" style="margin-top:30px;font-size:12px">Fair Exams, an open audit by Sanjana Maini. Aggregates only; no candidate is identifiable.</p>
+</div>
+<script>
+const D = /*DATA*/;
+const C = D.c, Y = D.y, S = D.s, H = D.h, E = D.e;
+const fmt = n => n == null ? "" : n.toLocaleString("en-GB");
+const f2 = n => n == null ? "n/a" : n.toFixed(2);
+const fq = q => q == null ? "n/a" : (q < 0.0001 ? "<0.0001" : q.toFixed(4));
+const pc = r => r == null ? "n/a" : Math.round(r * 100) + "%";
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+el("chips").innerHTML = [
+  [fmt(H.candidates), "candidates"], [fmt(H.screen_centres), "centres tested"],
+  [H.flags_layer2, "registered flags"], [H.tail_flags, "tail-beyond-bulk flags"], [H.geo_hubs, "hub cities"]
+].map(([b, s]) => `<div class="chip"><b>${b}</b><span>${s}</span></div>`).join("");
+
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+  ["search", "flags", "hubs", "states", "about"].forEach(t => el("t-" + t).classList.toggle("hide", t !== b.dataset.t));
+});
+const root = document.documentElement;
+el("theme").onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+};
+
+const byCity = {};
+C.forEach(c => (byCity[c[1]] = byCity[c[1]] || []).push(c));
+const badges = c => (c[7] != null && c[7] <= 0.05 ? '<span class="badge b-flag">flag</span>' : "") +
+  (c[11] != null && c[11] <= 0.05 ? '<span class="badge b-tail">tail beyond bulk</span>' : "");
+
+el("q").oninput = () => {
+  const q = el("q").value.trim().toLowerCase();
+  if (q.length < 2) { el("res").innerHTML = ""; return; }
+  const cityHits = Object.entries(Y).filter(([id, y]) => y[0].toLowerCase().includes(q)).slice(0, 8)
+    .map(([id, y]) => `<li data-city="${id}"><span>${esc(y[0])}, ${esc(y[1])}${y[6] ? '<span class="badge b-hub">hub</span>' : ""}</span><small>city, ${y[4]} centres</small></li>`);
+  const cHits = C.filter(c => c[2].toLowerCase().includes(q) || String(c[0]).startsWith(q) || Y[c[1]][0].toLowerCase().includes(q))
+    .slice(0, 40).map(c => `<li data-centre="${c[0]}"><span>${esc(c[2])}${badges(c)}</span><small>${esc(Y[c[1]][0])}, ${c[0]}</small></li>`);
+  el("res").innerHTML = cityHits.concat(cHits).join("") || '<li class="muted">No match</li>';
+};
+el("res").onclick = e => {
+  const li = e.target.closest("li");
+  if (!li) return;
+  if (li.dataset.city) showCity(+li.dataset.city);
+  if (li.dataset.centre) showCentre(+li.dataset.centre);
+};
+
+function histSVG(own, city) {
+  const rest = city.map((v, i) => v - own[i]);
+  const so = own.reduce((a, b) => a + b, 0) || 1, sr = rest.reduce((a, b) => a + b, 0) || 1;
+  const a = own.map(v => v / so), b = rest.map(v => v / sr);
+  const m = Math.max(...a, ...b) || 1, w = 620, h = 170, bw = w / a.length;
+  let s = `<svg viewBox="0 0 ${w} ${h + 26}" width="100%" role="img" aria-label="Marks distribution of the centre against the rest of its city">`;
+  b.forEach((v, i) => s += `<rect x="${i * bw + 1}" y="${h - v / m * h}" width="${bw - 2}" height="${v / m * h}" fill="var(--line)"/>`);
+  let d = "";
+  a.forEach((v, i) => { const y = h - v / m * h; d += (i ? "L" : "M") + (i * bw) + " " + y + " L" + ((i + 1) * bw) + " " + y; });
+  s += `<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+  [0, 200, 400, 600].forEach(t => { const x = (t - E[0]) / (E[E.length - 1] - E[0]) * w; s += `<text x="${x}" y="${h + 16}" text-anchor="middle">${t}</text>`; });
+  s += `<text x="${w}" y="${h + 16}" text-anchor="end">marks</text></svg>`;
+  return s + '<p class="muted" style="font-size:12px;margin:2px 0 0">Bars: rest of the city. Line: this centre. Both scaled to their own totals.</p>';
+}
+
+function readCentre(c) {
+  if (c[6] == null) return "This is the only centre in its city, so it cannot be tested against the city.";
+  const reg = c[7] <= 0.05, tail = c[11] != null && c[11] <= 0.05;
+  if (reg && tail) return "More top scorers than random allotment allows, and more than this centre's own middle half predicts. This is the pattern a boost to some candidates would leave, and also the pattern of a strong minority cohort allotted together; only item-level data could tell them apart.";
+  if (reg) return "More top scorers than random allotment allows, but no more than its own middle half predicts: the whole distribution is shifted. That is the signature of a stronger cohort allotted together.";
+  if (tail) return "More top scorers than this centre's own middle half predicts, though not enough to stand out against its city. With few expected top scorers this can be fragile; see the stability figure.";
+  if (c[8] != null && c[8] <= 0.05) return "Far fewer top scorers than random allotment within its city would give, consistent with a weaker cohort allotted together.";
+  return "Nothing unusual: results are consistent with random allotment within its city.";
+}
+
+function showCentre(code) {
+  const c = C.find(x => x[0] === code), y = Y[c[1]];
+  el("view").innerHTML = `<div class="card"><h2>${esc(c[2])}${badges(c)}</h2>
+  <p class="muted" style="margin:0">${esc(y[0])}, ${esc(y[1])} &middot; centre ${c[0]} &middot; <a href="#" id="tocity">all ${y[4]} centres in ${esc(y[0])}</a></p>
+  <div class="grid">
+   <div class="kv"><span>Candidates</span><b>${fmt(c[3])}</b></div>
+   <div class="kv"><span>Top-1% scorers (658+)</span><b>${c[4]}</b></div>
+   <div class="kv"><span>Expected if random</span><b>${c[5] == null ? "n/a" : c[5]}</b></div>
+   <div class="kv"><span>z (adjusted)</span><b>${f2(c[6])}</b></div>
+   <div class="kv"><span>q (excess)</span><b>${fq(c[7])}</b></div>
+   <div class="kv"><span>Flag stability</span><b>${pc(c[12])}</b></div>
+   <div class="kv"><span>Tail beyond bulk, z</span><b>${f2(c[10])}</b></div>
+   <div class="kv"><span>Tail stability</span><b>${pc(c[13])}</b></div>
+   <div class="kv"><span>Mean marks</span><b>${c[14]}</b></div>
+   <div class="kv"><span>Mean vs city, z (adjusted)</span><b>${f2(c[9])}</b></div>
+  </div><p>${readCentre(c)}</p>${histSVG(c[15], y[8])}</div>`;
+  el("tocity").onclick = e => { e.preventDefault(); showCity(c[1]); };
+}
+
+function centreRows(list) {
+  return list.map(c => `<tr class="click" data-centre="${c[0]}"><td>${esc(c[2])}${badges(c)}</td><td>${esc(Y[c[1]][0])}</td><td class="n">${fmt(c[3])}</td><td class="n">${c[4]}</td><td class="n">${c[5] == null ? "" : c[5]}</td><td class="n">${f2(c[6])}</td><td class="n">${fq(c[7])}</td><td class="n">${pc(c[12])}</td></tr>`).join("");
+}
+const head = '<thead><tr><th>Centre</th><th>City</th><th class="n">Candidates</th><th class="n">Top 1%</th><th class="n">Expected</th><th class="n">z adj.</th><th class="n">q</th><th class="n">Stability</th></tr></thead>';
+function wireRows(root) {
+  root.querySelectorAll("tr[data-centre]").forEach(tr => tr.onclick = () => {
+    document.querySelector('.tabs button[data-t="search"]').click(); showCentre(+tr.dataset.centre); window.scrollTo(0, 0);
+  });
+}
+
+function showCity(id) {
+  const y = Y[id], list = (byCity[id] || []).slice().sort((a, b) => (b[6] ?? -99) - (a[6] ?? -99));
+  el("view").innerHTML = `<div class="card"><h2>${esc(y[0])}${y[6] ? '<span class="badge b-hub">hub city</span>' : ""}</h2>
+  <p class="muted" style="margin:0">${esc(y[1])} &middot; ${fmt(y[2])} candidates in ${y[4]} centres &middot; ${(100 * y[3] / y[2]).toFixed(2)}% in the national top 1% &middot; funnel z ${f2(y[5])}</p>
+  <div class="scroll"><table>${head}<tbody>${centreRows(list)}</tbody></table></div></div>`;
+  wireRows(el("view"));
+}
+
+(function flags() {
+  const reg = C.filter(c => c[7] != null && c[7] <= 0.05).sort((a, b) => b[6] - a[6]);
+  const tail = C.filter(c => c[11] != null && c[11] <= 0.05 && !(c[7] <= 0.05)).sort((a, b) => b[10] - a[10]);
+  el("t-flags").innerHTML = `<div class="card"><h2>Registered flags: excess over random allotment (${reg.length})</h2>
+  <p class="muted">Every one of these is shifted across its whole distribution, the signature of a stronger cohort allotted together. Only one also has more top scorers than its own bulk predicts.</p>
+  <div class="scroll"><table>${head}<tbody>${centreRows(reg)}</tbody></table></div></div>
+  <div class="card"><h2>Tail beyond the bulk only (${tail.length})</h2><p class="muted">More top scorers than the centre's own middle half predicts, without standing out against the city. Expected counts are small, so these are fragile.</p>
+  <div class="scroll"><table>${head}<tbody>${centreRows(tail)}</tbody></table></div></div>`;
+  wireRows(el("t-flags"));
+})();
+
+(function hubs() {
+  const h = Object.entries(Y).filter(([id, y]) => y[6]).sort((a, b) => b[1][5] - a[1][5]);
+  el("t-hubs").innerHTML = `<div class="card"><h2>Hub cities (${h.length})</h2><p class="muted">Cities whose share of national top-1% scorers sits above the 99.8% funnel limit, even after allowing for the extra spread between cities. A hub is not an anomaly: it is where coaching ecosystems concentrate.</p>
+  <div class="scroll"><table><thead><tr><th>City</th><th>State</th><th class="n">Candidates</th><th class="n">Top-1% share</th><th class="n">Funnel z</th><th class="n">Centres</th></tr></thead><tbody>${
+   h.map(([id, y]) => `<tr class="click" data-city="${id}"><td>${esc(y[0])}</td><td>${esc(y[1])}</td><td class="n">${fmt(y[2])}</td><td class="n">${(100 * y[3] / y[2]).toFixed(2)}%</td><td class="n">${f2(y[5])}</td><td class="n">${y[4]}</td></tr>`).join("")}</tbody></table></div></div>`;
+  el("t-hubs").querySelectorAll("tr[data-city]").forEach(tr => tr.onclick = () => {
+    document.querySelector('.tabs button[data-t="search"]').click(); showCity(+tr.dataset.city); window.scrollTo(0, 0);
+  });
+})();
+
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h.startsWith("c=")) { const c = +h.slice(2); if (C.some(x => x[0] === c)) showCentre(c); }
+  else if (h.startsWith("city=")) {
+    const name = h.slice(5).toLowerCase(), hit = Object.entries(Y).find(([id, y]) => y[0].toLowerCase() === name || id === name);
+    if (hit) showCity(+hit[0]);
+  }
+}
+window.addEventListener("hashchange", route);
+
+(function states() {
+  const s = S.slice().sort((a, b) => b[1] - a[1]), m = s[0][1], w = 560, rh = 20;
+  let svg = `<svg viewBox="0 0 ${w + 170} ${s.length * rh + 10}" width="100%" role="img" aria-label="Intra-class correlation of marks by state">`;
+  s.forEach((r, i) => {
+    const y = i * rh + 4, bw = r[1] / m * w;
+    svg += `<text x="160" y="${y + 13}" text-anchor="end">${esc(r[0])}</text><rect x="168" y="${y}" width="${Math.max(bw, 1)}" height="${rh - 6}" fill="${r[3] ? "var(--accent)" : "var(--gold)"}"/><text x="${172 + bw}" y="${y + 13}">${r[1].toFixed(3)}${r[3] ? " (" + r[4] + "% regional)" : ""}</text>`;
+  });
+  svg += "</svg>";
+  el("t-states").innerHTML = `<div class="card"><h2>How far allotment departs from a lottery</h2><p class="muted">Intra-class correlation of marks among centres within the same city: 0 means centres look like random draws from their city. Blue: states that offer a regional-language paper, with the share of registrants choosing it. Gold: English and Hindi only. NTA prints a separate booklet for each medium; where many candidates take a regional or Hindi paper, centres differ sharply.</p>${svg}</div>`;
+})();
+route();
+</script>
+</body>
+</html>
