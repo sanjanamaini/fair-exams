@@ -181,15 +181,18 @@ def plots(df, rho1, nullb):
     fig.savefig(FIGURES / "screen_z_hist.png", dpi=200)
     plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(6.4, 3.4))
-    for col, pred, colr, lab in (("sigma0_top1", "sigma0_top1_pred", "#1F3A5F", "top-1% count"),
-                                 ("sigma0_mean", "sigma0_mean_pred", "#C9A227", "mean marks")):
-        ax.plot(nullb["mean_n"], nullb[col] ** 2, "o", color=colr, label="%s: empirical null (Efron)" % lab)
-        ax.plot(nullb["mean_n"], nullb[pred] ** 2, "-", color=colr, alpha=0.7, label="%s: design-effect model" % lab)
-    ax.axhline(1, color="#999", lw=1)
-    ax.set_xlabel("Average candidates per centre (size band)")
-    ax.set_ylabel("Null variance of centre z-scores")
-    ax.legend(frameon=False, fontsize=7)
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.2))
+    for ax, col, pred, colr, lab in ((axes[0], "sigma0_top1", "sigma0_top1_pred", "#1F3A5F", "Top-1% count"),
+                                     (axes[1], "sigma0_mean", "sigma0_mean_pred", "#C9A227", "Mean marks")):
+        ax.plot(nullb["mean_n"], nullb[col] ** 2, "o", color=colr, label="empirical null (Efron)")
+        ax.plot(nullb["mean_n"], nullb[pred] ** 2, "-", color=colr, alpha=0.7, label="design-effect model")
+        ax.axhline(1, color="#999", lw=1)
+        ax.set_ylim(0, None)
+        ax.set_title(lab, fontsize=8)
+        ax.set_xlabel("Average candidates per centre (size band)", fontsize=7)
+        ax.tick_params(labelsize=6)
+        ax.legend(frameon=False, fontsize=6, loc="upper left")
+    axes[0].set_ylabel("Null variance of centre z-scores", fontsize=7)
     fig.tight_layout()
     fig.savefig(FIGURES / "screen_null_by_size.png", dpi=200)
     plt.close(fig)

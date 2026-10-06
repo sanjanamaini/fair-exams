@@ -32,6 +32,8 @@ def tex_escape(s: str) -> str:
 
 RULES = [  # first match wins
     ("p", r"(_p$|_pvalue$|p_hetero$|binom_p$|p_extreme|_q$)"),
+    ("dec1", r"(_E$|_E1$)"),
+    ("int", r"(shift_median|own_median$|rest_median$|_q10$|_sem$)"),
     ("sci", r"(tau2|cutoff)"),
     ("dec4", r"(^rho1$|^rho1_trim|^rho_marks$|_icc$|^medium_icc_max$|slope|^serial_mean_r1$|max_abs_lag)"),
     ("dec2", r"(z_funnel|_z$|_z_|_sd$|_sd_|_sdz$|sigma0|delta0|_rho$|_rho_|_lo$|_hi$|corr|deff|loading|odds_ratio|"
@@ -63,6 +65,10 @@ def fmt(k: str, v) -> str:
         return "$%s\\times10^{%d}$" % (m, int(e))
     if kd == "dec4":
         return "%.4f" % v
+    if kd == "dec1":
+        return "%.1f" % v
+    if kd == "int":
+        return "{:,}".format(int(round(v)))
     if kd == "pct":
         x = 100 * v
         d = 0 if (abs(x) >= 10 or float(x).is_integer()) else (1 if abs(x) >= 1 else 2)

@@ -83,6 +83,10 @@ def main() -> None:
                "tail_informative_centres": int(len(informative)),
                "tail_informative_sd_z": float(informative["z_tail"].std()),
                "tail_bh_cutoff": float(out.loc[out["flag_tail"], "p_tail"].max()) if out["flag_tail"].any() else FDR_Q / len(out)}
+    for code, name in ((220701, "rk"), (152101, "jehanabad"), (171202, "kondagaon")):
+        r = out[out["code"] == code].iloc[0]
+        numbers.update({"tail_%s_E" % name: float(r["tail_E"]), "tail_%s_k" % name: int(r["tail_k"]),
+                        "tail_%s_z" % name: float(r["z_tail"]), "tail_%s_E1" % name: float(r["E1"])})
     (TABLES / "bulk_numbers.json").write_text(json.dumps(numbers, indent=1, default=float))
     print(json.dumps(numbers, indent=1, default=float))
     cols = ["code", "city", "name", "n", "top1", "E1", "z1_adj", "flag", "bulk_mu", "bulk_sigma", "tail_E", "z_tail", "q_tail"]

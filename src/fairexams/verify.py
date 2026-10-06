@@ -109,9 +109,9 @@ def main() -> None:
 
     res = check(list(reason), mirror, reason)
     res.to_csv(TABLES / out_name, index=False)
-    summary = {"verified_centres": int(len(res)), "verified_match": int(res["match"].sum()),
-               "verified_candidates": int(res["n_pdf"].sum())}
     key = "verify_flagged" if args.flagged else "verify"
+    summary = {key + "_centres": int(len(res)), key + "_match": int(res["match"].sum()),
+               key + "_candidates": int(res["n_pdf"].sum())}
     (TABLES / ("%s_numbers.json" % key)).write_text(json.dumps(summary, indent=1))
     print(res.groupby("reason")["match"].agg(["size", "sum"]))
     print(json.dumps(summary))

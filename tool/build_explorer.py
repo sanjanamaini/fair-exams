@@ -17,6 +17,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from fairexams.config import INTERIM, TABLES  # noqa: E402
+from fairexams.text import nice_name  # noqa: E402
 
 EDGES = np.arange(-80, 761, 40)  # 21 bins of 40 marks
 
@@ -43,7 +44,7 @@ def main() -> None:
     def r(x, d=2):
         return None if pd.isna(x) else round(float(x), d)
 
-    centres = [[int(x.code), int(x.city_id), x["name"].title(), int(x.n), int(x.top1), r(x.E1, 1), r(x.z1_adj),
+    centres = [[int(x.code), int(x.city_id), nice_name(x["name"]), int(x.n), int(x.top1), r(x.E1, 1), r(x.z1_adj),
                 r(x.q_excess, 4), r(x.q_deficit, 4), r(x.zmean_adj), r(x.z_tail), r(x.q_tail, 4),
                 r(x.flag_rate), r(x.flag_tail_rate), round(float(x["mean"]), 1), hists[x.code]]
                for _, x in df.iterrows()]

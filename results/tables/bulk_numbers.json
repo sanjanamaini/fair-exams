@@ -8,5 +8,17 @@
  "tail_corr_with_bulk_mu": -0.2078135894895738,
  "tail_informative_centres": 1639,
  "tail_informative_sd_z": 1.4759309820503865,
- "tail_bh_cutoff": 3.7155951921388976e-05
+ "tail_bh_cutoff": 3.7155951921388976e-05,
+ "tail_rk_E": 34.69908607515027,
+ "tail_rk_k": 93,
+ "tail_rk_z": 8.327053813149153,
+ "tail_rk_E1": 38.2109,
+ "tail_jehanabad_E": 0.6850227981396947,
+ "tail_jehanabad_k": 9,
+ "tail_jehanabad_z": 5.393649900547969,
+ "tail_jehanabad_E1": 6.08913,
+ "tail_kondagaon_E": 4.9997708007119304e-05,
+ "tail_kondagaon_k": 2,
+ "tail_kondagaon_z": 6.017360026410343,
+ "tail_kondagaon_E1": 1.1831
 }

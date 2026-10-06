@@ -34,6 +34,8 @@ fragility:
 	$(PY) -m fairexams.fragility
 
 report:
+	$(PY) -m fairexams.demo
+	$(PY) tool/build_explorer.py
 	$(PY) -m fairexams.numbers
 	$(PY) -m fairexams.report_tables
 	cd report && pdflatex -interaction=nonstopmode -halt-on-error report.tex >/dev/null && pdflatex -interaction=nonstopmode -halt-on-error report.tex >/dev/null

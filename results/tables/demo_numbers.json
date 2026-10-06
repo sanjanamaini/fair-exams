@@ -1,0 +1,16 @@
+{
+ "demo_candidates": 165381,
+ "demo_centres": 342,
+ "demo_cities": 40,
+ "demo_flags": 2,
+ "demo_flags_exact": 13,
+ "demo_flags_tail": 1,
+ "demo_both": 1,
+ "demo_planted_z": 4.698237513113203,
+ "demo_planted_ztail": 10.78976488781576,
+ "demo_planted_flag_rate": 1.0,
+ "demo_planted_tail_rate": 1.0,
+ "demo_planted_both": true,
+ "demo_rho_top": 0.0049210755280328375,
+ "demo_design_effect": 3.4137875465001066
+}

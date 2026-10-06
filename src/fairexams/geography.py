@@ -138,6 +138,11 @@ def main() -> None:
     if len(hubs):
         numbers.update({"geo_hubs_heterogeneous": int((hubs["p_hetero"] < 0.05).sum()),
                         "geo_hubs_tested": int(hubs["p_hetero"].notna().sum())})
+    for name, key in (("DELHI/NEW DELHI", "delhi"), ("JAIPUR", "jaipur"), ("PATNA", "patna"), ("KOTTAYAM", "kottayam"),
+                      ("NAMAKKAL", "namakkal")):
+        r = city[city["city"] == name].iloc[0]
+        numbers.update({"geo_%s_N" % key: int(r["N"]), "geo_%s_top1" % key: int(r["top1"]),
+                        "geo_%s_rate" % key: float(r["rate"]), "geo_%s_z" % key: float(r["z_funnel"])})
     for h in COACHING_HUBS:
         r = city[city["city"] == h].iloc[0]
         hb = hubs[hubs["city"] == h]

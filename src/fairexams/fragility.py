@@ -114,7 +114,7 @@ def main() -> None:
 def plot(fr):
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.2, 3.3))
     a1.bar(fr["score"], fr["candidates"], width=1.0, color="#1F3A5F")
-    for s, lab in ((COURT_CUTS["rank_108000"], "rank 1,08,000"), (COURT_CUTS["rank_56000"], "rank 56,000")):
+    for s, lab in ((COURT_CUTS["rank_108000"], "rank 108,000"), (COURT_CUTS["rank_56000"], "rank 56,000")):
         a1.axvline(s, color="#C9A227", lw=1)
         a1.annotate(lab, (s, a1.get_ylim()[1] * 0.92), fontsize=6, rotation=90, ha="right", va="top")
     a1.set_xlabel("Marks", fontsize=7)

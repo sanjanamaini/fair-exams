@@ -19,6 +19,7 @@ from scipy import stats
 
 from .config import COURT_CUTS, FDR_Q, FIGURES, INTERIM, TABLES, VALIDATION
 from .stats import random_effects_tau2
+from .text import nice_name
 
 
 def main() -> None:
@@ -121,6 +122,14 @@ def main() -> None:
     prof = pd.DataFrame(prof)
     prof.to_csv(TABLES / "flag_profiles.csv", index=False, float_format="%.4g")
     numbers["nat_top01_share_of_top1"] = share_top01_given_top1
+    rk = prof[prof["code"] == 220701].iloc[0]
+    numbers.update({"rk_top01": int(rk["top01"]), "rk_top01_share_of_top1": float(rk["top01_share_of_top1"]),
+                    "rk_p_extreme": float(rk["p_extreme_top"]), "rk_own_median": float(rk["own_q50"]),
+                    "rk_rest_median": float(rk["rest_q50"])})
+    for code, name in ((231509, "rewari"), (392302, "sikarbps"), (410811, "namakkaltis")):
+        r = prof[prof["code"] == code].iloc[0]
+        numbers.update({"prof_%s_own_median" % name: float(r["own_q50"]), "prof_%s_rest_median" % name: float(r["rest_q50"]),
+                        "prof_%s_own_q10" % name: float(r["own_q10"]), "prof_%s_rest_q10" % name: float(r["rest_q10"])})
     reg = prof[prof["registered_flag"]]
     numbers["flags_lower_half_shift_positive"] = int((reg["lower_half_shift"] > 0).sum())
     numbers["flags_lower_half_shift_median"] = float(reg["lower_half_shift"].median())
@@ -146,7 +155,7 @@ def plot_profiles(cand, show):
         rest = cand.loc[(cand["city_id"] == cid) & (cand["code"] != r.code), "marks"]
         ax.hist(rest, bins=bins, density=True, color="#C8D3DB", label="rest of city")
         ax.hist(own, bins=bins, density=True, histtype="step", color="#1F3A5F", lw=1.3, label="centre")
-        ax.set_title("%s, %s" % (r.city.title()[:14], r.name.title()[:22]), fontsize=6.5)
+        ax.set_title("%s, %s" % (r.city.title()[:14], nice_name(r.name)[:24]), fontsize=6.5)
         ax.tick_params(labelsize=6)
         ax.set_yticks([])
     for ax in np.ravel(axes)[n:]:

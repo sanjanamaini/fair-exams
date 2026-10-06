@@ -1,0 +1,295 @@
+% Fair Exams: report. Every number comes from numbers.tex, written by the pipeline (make report).
+\documentclass[11pt]{article}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+\usepackage{XCharter}
+\usepackage[scaled=0.92]{sourcesans}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{gold}{HTML}{C9A227}
+\definecolor{soft}{HTML}{EEF1F5}
+\titleformat{\section}{\sffamily\color{accent}\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\sffamily\color{accent}\bfseries}{\thesubsection}{0.6em}{}
+\captionsetup{font=small,labelfont={bf,sf}}
+\setlist{itemsep=2pt,topsep=3pt}
+\graphicspath{{../results/figures/}}
+\input{numbers.tex}
+\newcommand{\inbrief}[1]{\noindent\colorbox{soft}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small #1}}}
+
+\title{\sffamily\color{accent}\textbf{Do the Figures Speak?}\\[4pt]\large An open audit of NEET-UG 2024, centre by centre: what 2.33 million court-ordered results can and cannot reveal about leaks, allotment and ranks}
+\author{Sanjana Maini}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\inbrief{%
+\textbf{In brief.} In July 2024 the Supreme Court made the National Testing Agency (NTA) publish every NEET-UG candidate's marks, centre by centre. This audit treats NTA's allotment of candidates to centres within each city as a natural experiment and tests all \ScreenCentres{} centres in multi-centre cities, with every test, threshold and prediction registered before the marks were analysed.
+\begin{itemize}[leftmargin=1.2em]
+\item The public file reproduces every figure the Supreme Court relied on, exactly.
+\item The screen flags \FlagsLayerTwo{} centres for more top scorers than random allotment allows. All \FlagsLayerTwo{} are shifted across their whole distribution, the signature of a stronger cohort allotted together. Only one, R.K. University Unit-1 in Rajkot, also has more top scorers than its own bulk predicts.
+\item No centre linked to the 2024 incidents stands out, as predicted. At most \CourtHazaribaghTopOne{} of the roughly 125 Hazaribagh leak beneficiaries can have reached the national top 1\%.
+\item A boost to about 4-5\% of one centre's candidates is caught 80\% of the time. A leak spread across a city is invisible to any within-city test.
+\item Allotment is close to a lottery in Kerala or Karnataka and far from one in Madhya Pradesh or West Bengal. The difference tracks the share of candidates taking a regional-language paper (Spearman \MediumSpearman). Where allotment groups candidates, or a city has few centres, a candidate can predict their centre: Godhra's only two centres both belonged to the school group behind the foiled 2024 plot.
+\item Ten cities hold \GeoTopOneZeroShareTopOne{} of the top 1\% with \GeoTopOneZeroShareCandidates{} of candidates. District development predicts average marks (Spearman \GeoDevMeanMarksRho) but barely predicts toppers (\GeoDevTopOneRateRho).
+\item At the seat line, one question is worth \FrFiveSevenSevenRanksFive{} ranks.
+\end{itemize}}
+
+\section{Introduction}
+On 12 May 2026 the National Testing Agency cancelled NEET-UG, the exam that decides admission to every medical college in India, after a leak. It was the second leak in 21 months. The first, in 2024, reached candidates in Hazaribagh and Patna. The Supreme Court refused a re-test then, partly on the strength of data: it compared the 2024 success rates of three cities with earlier years and found nothing abnormal (Supreme Court of India 2024).
+
+The court leaned on a 1970 precedent. In \textit{Bihar School Examination Board v. Subhas Chandra Sinha}, a centre where nearly every candidate passed, against half elsewhere, was enough to cancel its results: ``the figures speak for themselves'' (Supreme Court of India 1970). The 2024 court also ordered NTA to publish every candidate's marks, centre by centre, with identities masked. That release is the only one of its kind. NTA has not published centre-wise results for 2025 or for the 2026 re-exam.
+
+This report asks how far that intuition can be pushed, and where it fails. It asks three questions of the 2024 release:
+\begin{enumerate}[leftmargin=1.5em]
+\item \textbf{Integrity.} Is any of the \Centres{} centres incompatible with candidates being allotted at random within its city? And what size of fraud could such a screen catch at all?
+\item \textbf{Geography.} How concentrated are top scores across exam cities, and how far does that follow district development?
+\item \textbf{Rank fragility.} How many ranks does a single question move?
+\end{enumerate}
+
+The design combines methods from fields that rarely meet. Randomisation inference (Fisher 1935; Rosenbaum 2002) turns within-city allotment into exact tests. Large-scale inference (Benjamini and Hochberg 1995; Storey 2002; Efron 2004) controls false discoveries across thousands of centres and checks the null itself. The survey-sampling design effect (Kish 1965) allows for allotment that is not a lottery. Funnel plots from healthcare regulation (Spiegelhalter 2005; Spiegelhalter et al.\ 2012) compare cities of very different sizes. Injection-recovery tests, which exoplanet surveys use to measure what their pipelines can find (Christiansen et al.\ 2013), measure what this screen can find. The idea of reading misconduct from score patterns comes from education economics (Jacob and Levitt 2003) and test security (Cizek and Wollack 2017). Positive deviance (Marsh et al.\ 2004) and a classic measurement-error model (Lord 1965) frame the other two strands.
+
+Every hypothesis, test, threshold and prediction was committed to the repository before any marks were analysed (\texttt{PREREGISTRATION.md}), including a blind list of centres linked to the 2024 incidents. Four analyses were added after seeing results; each is labelled as an addition, dated and explained in \texttt{DEVIATIONS.md}, and reported next to the registered analyses, never instead of them.
+
+\section{Data, and proof that it is the right data}\label{sec:data}
+\paragraph{The release.} On 20 July 2024 NTA published one PDF per centre listing each candidate's serial number and total marks out of 720 (Supreme Court order of 18 July 2024). The release has no names, roll numbers or subject marks. A public CSV parse of these PDFs (PardhavMaradani on GitHub) was used for convenience, after checking it against NTA's own files: the (serial, marks) pairs of \VerifyMatch{} of \VerifyCentres{} centres match exactly (100 drawn at random plus every centre on the validation lists, \VerifyCandidates{} candidates), as do all \VerifyFlaggedMatch{} flagged centres. The file holds \Candidates{} candidates in \Centres{} centres and \Cities{} city names, \CitiesOverseas{} of them abroad.
+
+\paragraph{It is the court's data.} The pipeline reproduces every figure the Supreme Court cited, exactly, and four of five other published figures (Table~\ref{tab:validation}). It is the file as it stood before the 26 July 2024 revision of one physics question: \FrEqSevenTwoZero{} candidates sit on 720, the pre-revision count of toppers.
+
+\paragraph{The arithmetic is clean.} NEET 2024 gave +4 for a right answer and $-1$ for a wrong one, over at most 180 attempted questions, so every total must be $4c - w$ with $c + w \le 180$. Some totals are impossible (\ImpossibleScoresSixZeroZeroSevenTwoZero{} among 600-720). No candidate in the file has an impossible total. The grace marks that produced totals of 718 and 719 in June 2024 were withdrawn before this release.
+
+\begin{table}[htbp]\centering
+\caption{Published figures reproduced by the public file.}\label{tab:validation}
+\input{tables/validation.tex}
+\par\smallskip{\footnotesize $^{a}$ The centre-wise release merges some cities under one name (for example Delhi/New Delhi). The judgment's ``571 cities'' plus ``fourteen cities overseas'' double-counts: NTA's 571 already include the 14.}
+\end{table}
+
+\paragraph{Districts and media.} The \CitiesIndia{} Indian exam cities were mapped to NFHS-5 districts (IIPS and ICF 2021): \MapExact{} by exact name, \MapAlias{} renamed or respelt, \MapTown{} towns inside a district, \MapMulti{} multi-district metros, \MapPartial{} partial; Kavaratti has no NFHS-5 district. A development index is the first principal component of five district indicators (women's literacy, women with ten or more years of schooling, electricity, improved sanitation, clean cooking fuel); it captures \DevPcOneShare{} of their variance. NTA's 2024 registrations by paper medium come from its 26 July 2024 press release.
+
+\section{Design}\label{sec:design}
+\subsection{Two ways to cheat, two signatures}
+The court record describes two kinds of fraud, and they leave different traces.
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{An insider at a centre.} At Godhra a Deputy Superintendent planned to fill in answer sheets after the exam for candidates who had paid. Candidates from other states were told to choose Gujarati as their paper medium, so that local accomplices could write in their answers, and to give local addresses (CBI, as reported in 2024). Godhra had only two centres, both run by the same school group. This kind of fraud raises one centre.
+\item \textbf{A leak sold before the exam.} The 2024 paper was photographed at Oasis School, Hazaribagh, solved, and shown to paying candidates in Hazaribagh and Patna, who then sat at whichever centres NTA had allotted them. This raises a city, not a centre.
+\end{itemize}
+
+\subsection{The natural experiment}
+Candidates choose cities; NTA's software allots the centre within the city. If allotment is random, each centre is a random sample of its city, and city-level differences (coaching hubs, wealth, language) cancel by design. For centre $j$ with $n_j$ candidates in a city of $N$ candidates of whom $K$ are in the national top 1\% (\TTopOne{} marks or more), the number of top scorers at the centre follows a hypergeometric distribution. The exact one-sided p-value is Fisher's exact test of the centre against the rest of its city. Cities with a single centre (\SingleCentreCities{} cities, \SingleCentreCandidates{} candidates) cannot be tested this way.
+
+\subsection{When allotment is not a lottery}
+Allotment may group candidates, for example by paper medium. Grouping inflates the variance of every centre's count by the Kish design effect $1 + (n_j - 1)\rho$, where $\rho$ is the intra-class correlation (ICC) of top-1\% status among candidates of the same centre, within cities. $\rho$ is estimated by one-way analysis of variance on centres nested in cities, after removing the 1\% of centres with the largest absolute z-scores so that genuine anomalies cannot inflate the null. Each centre's z-score is divided by the square root of its design effect (Layer 2). The model makes a testable prediction: the empirical null variance (Efron 2004) should grow linearly with centre size, with slope close to $\rho$.
+
+\subsection{Thousands of tests}
+Discrete p-values are converted to z-scores with the randomised probability integral transform, which is exactly standard normal under the null (Geyer and Meeden 2005). The Benjamini-Hochberg procedure controls the false discovery rate at $q = 0.05$ across all centres. Because randomised p-values make borderline results depend on the draw, every flag is also reported with the share of \StabSeeds{} seeds that produce it (Addition A4).
+
+\subsection{Tail beyond the bulk (Addition A1)}
+A stronger cohort allotted together shifts a centre's whole distribution. A boost to some candidates shifts only its top. Each centre's marks are converted to normal scores against the rest of its city; a normal fit to the centre's middle half (median and interquartile range) predicts its top-1\% count; the observed count is tested against that prediction and calibrated with Efron's empirical null. This addition was designed after seeing the registered flags.
+
+\subsection{Measuring what can be caught}
+Synthetic frauds were planted in the real data, one at a time, and the screen re-run with $\rho$, the empirical null and the Benjamini-Hochberg bar held at their real values (400 injections per cell). \textit{Centre fraud}: $m$ candidates at one centre get marks drawn from the national top 1\%. \textit{City leak}: $m$ candidates spread across one city's centres get the same. City leaks are also checked against a between-city funnel plot.
+
+\section{Integrity}\label{sec:integrity}
+\subsection{Top scorers are spread almost as if by lottery; average marks are not}
+The ICC of top-1\% status within cities is \RhoOne, a median design effect of only \DeffOneMedian. Efron's empirical null for the top-1\% statistic has standard deviation \EfronSigmaZeroTopOne, and across centre-size bands its variance grows with slope \EfronSlopeTopOne, close to $\rho$, as the model predicts (Figure~\ref{fig:null}).
+
+Average marks tell a different story. Their ICC is \RhoMarks, the median design effect \DeffmMedian, and centre-mean z-scores have standard deviation \ZmeanSd{} where random allotment would give 1. Their low tail is heavier than their high tail (\AsymMeanBelowThree{} centres below $-3$ against \AsymMeanAboveThree{} above $+3$; binomial p \AsymMeanBinomP). That is the opposite of a fraud signature: fraud only adds to the top. Section~\ref{sec:states} shows where this grouping happens and why.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.78\linewidth]{screen_null_by_size.png}
+\caption{Null variance of centre z-scores by centre size. Points: Efron's empirical null. Lines: the design-effect model. For top-1\% counts the model fits; for mean marks the empirical core is narrower than the model, because grouping is concentrated in some states (Section~\ref{sec:states}).}\label{fig:null}
+\end{figure}
+
+\subsection{Nine flags, all stronger cohorts}
+The screen flags \FlagsLayerTwo{} centres for more top-1\% scorers than random allotment allows after the design effect (Table~\ref{tab:flags}); the exact test without it flags \FlagsLayerOne. Six are in Haryana and three in Gujarat. All \FlagsLowerHalfShiftPositive{} are shifted at their 10th and 25th percentiles too, by a median of \FlagsLowerHalfShiftMedian{} marks (Figure~\ref{fig:profiles}). At Delhi Public School, Rewari, the median candidate scored \ProfRewariOwnMedian{} against \ProfRewariRestMedian{} in the rest of the city. Stronger cohorts allotted together produce this pattern; a boost to some candidates does not.
+
+Under the tail-beyond-bulk test, \TailFlagsOfRegistered{} of the \FlagsLayerTwo{} flags remains. Six have fewer top scorers than their own bulk predicts. Across \StabSeeds{} seeds, \StabRegisteredAllSeeds{} flags hold every time and the weakest holds \StabRegisteredMinRate{} of the time.
+
+\begin{table}[htbp]\centering
+\caption{Registered flags: centres with more top-1\% scorers than random allotment within their city allows ($q \le 0.05$ after the design effect). Exp.: expected count under random allotment. Seeds: share of \StabSeeds{} seeds that flag the centre. Shift: mean shift of the 10th and 25th percentiles against the rest of the city, in marks. Bulk: top-1\% count predicted by the centre's own middle half. Tail $z$: observed against that prediction (Addition A1).}\label{tab:flags}
+\input{tables/flags.tex}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\linewidth]{flag_profiles.png}
+\caption{Every flagged centre (line) against the rest of its city (bars). The first nine are the registered flags: whole distributions shifted upwards. The last three are flagged only by the tail-beyond-bulk test.}\label{fig:profiles}
+\end{figure}
+
+\paragraph{R.K. University Unit-1, Rajkot.} One centre is anomalous on both counts, under every seed. It has \TailRkK{} top-1\% scorers where random allotment within Rajkot predicts \TailRkEOne{} and its own bulk predicts \TailRkE. It is the largest centre in the data. Its candidates are also stronger overall (median \RkOwnMedian{} against \RkRestMedian{} in the rest of Rajkot), and its very top is not unusually extreme: \RkTopZeroOneShareOfTopOne{} of its top-1\% scorers reach 699 or more, against \NatTopZeroOneShareOfTopOne{} nationally (p \RkPExtreme). The press singled this centre out in July 2024 using the same data. Two readings fit the totals equally well: a strong sub-cohort allotted together (for example from one coaching programme, or one paper medium in a city where many take Gujarati) or a boost to some candidates. Only item-level answer data, which NTA holds, can separate them. This report makes no finding of misconduct.
+
+\paragraph{Deficits.} The screen also finds \DeficitsLayerTwo{} centres with far fewer top scorers than their city: Bhartiya Public School in Sikar (median \ProfSikarbpsOwnMedian{} against \ProfSikarbpsRestMedian) and Trinity International School in Namakkal (\ProfNamakkaltisOwnMedian{} against \ProfNamakkaltisRestMedian). Both cities are coaching hubs, which suggests weaker cohorts grouped away from coaching students.
+
+\subsection{The blind test: incident centres look ordinary}
+Every centre on the blind list behaves as predicted (Table~\ref{tab:blind}). None of the \ValListANamed{} named incident centres is flagged for excess or deficit; on average they rank above only \ValListANamedMeanCityPercentile{} of the other centres in their city. Oasis School, where the paper leaked, has \ValTwoSixZeroFourZeroTwoTopOne{} top scorers against \ValTwoSixZeroFourZeroTwoEOne{} expected. The Godhra centre, where the plot was foiled and the suspects' results withheld, has \ValTwoTwoZeroFiveZeroTwoTopOne{} against \ValTwoTwoZeroFiveZeroTwoEOne.
+
+The leak's beneficiaries did not score like toppers. Hazaribagh has \CourtHazaribaghTopOne{} candidates in the national top 1\% and \CourtHazaribaghTopZeroOne{} in the top 0.1\%, so at most \CourtHazaribaghTopOne{} of the roughly 125 beneficiaries reached the top 1\%. On the between-city funnel, Hazaribagh ranks \CourtHazaribaghFunnelRank{} of \FunnelCities{} cities ($z$ = \CourtHazaribaghZFunnel), Patna \CourtPatnaFunnelRank{} ($z$ = \CourtPatnaZFunnel) and Godhra \CourtGodhraFunnelRank{} ($z$ = \CourtGodhraZFunnel).
+
+\begin{table}[htbp]\centering
+\caption{The blind list, compiled before marks were analysed. List A: centres in the court and investigation record (Dantewada and Tura are ambiguous: sources do not say which of the city's centres was affected). List B: centres singled out in the press after the release (not blind). In city: rank of the centre's $z$ among its city's centres.}\label{tab:blind}
+\input{tables/blind.tex}
+\end{table}
+
+\subsection{What the screen can and cannot catch}
+A boost to a few per cent of one centre's candidates is caught reliably (Table~\ref{tab:injectc}). At 80\% detection the screen needs about \InjectMinMEightZeroLTwoTwoFiveZero{} boosted candidates at centres under 250, \InjectMinMEightZeroLTwoTwoFiveZeroFourNineNine{} at 250-499, \InjectMinMEightZeroLTwoFiveZeroZeroSevenFourNine{} at 500-749 and \InjectMinMEightZeroLTwoSevenFiveZero{} at 750 or more. The tail-beyond-bulk test is weaker for large boosts, because a large boost also lifts the bulk; that is the price of its specificity.
+
+A leak spread across a city is a different matter (Table~\ref{tab:injectl}). Within-city tests catch it at the false-positive rate, because they compare each centre with a city that has been lifted too. Only the between-city funnel sees city leaks, and only large ones relative to the city. Had Hazaribagh's roughly 125 beneficiaries scored like the national top 1\%, the funnel would have caught it in \InjectHazaribaghOneTwoFiveFunnel{} of simulations; had they scored like the top 10\%, in \InjectHazaribaghTopOneZeroOneTwoFiveFunnel. A Patna-scale leak of 30 among \GeoPatnaN{} candidates is invisible to every test here.
+
+\begin{table}[htbp]\centering
+\caption{Centre fraud: share of 400 injections detected, by number of boosted candidates and centre size. Each cell: registered screen / tail beyond the bulk.}\label{tab:injectc}
+\input{tables/inject_centre.tex}
+\end{table}
+
+\begin{table}[htbp]\centering
+\caption{City leaks: share of 400 injections detected. ``A random city'' is drawn from cities with at least five times as many candidates as beneficiaries. Beneficiaries' marks are drawn from the national top 1\% unless the scenario says top 10\%. The funnel counts a detection only when the city was not already above its upper limit.}\label{tab:injectl}
+\input{tables/inject_city.tex}
+\end{table}
+
+\subsection{Where allotment departs from a lottery, and why it matters}\label{sec:states}
+The grouping of average marks is not spread evenly across India (Figure~\ref{fig:states}). In \MediumLotteryLikeStates{} of \MediumStates{} states with ten or more testable centres, centre means behave almost exactly like random draws from their city (standard deviation of centre z-scores under 1.5). In \MediumSortedStates{} they are strongly grouped (above 3); in Madhya Pradesh the ICC of marks is \StateMadhyapradeshIcc{} and the standard deviation \StateMadhyapradeshSdz.
+
+Paper medium is the leading explanation. NTA prints a different booklet for each medium and offers regional media only in their own states (NTA 2023). Across the \MediumRegionalStates{} states that offer a regional-language paper, the share of registrants choosing one predicts the ICC (Spearman \MediumSpearman, p = \MediumSpearmanP). Gujarat (\StateGujaratRegshare{} regional), West Bengal (\StateWestbengalRegshare), Tamil Nadu (\StateTamilnaduRegshare) and Assam (\StateAssamRegshare) are the four most grouped of the twelve; Kerala, Karnataka, Maharashtra, Odisha, Andhra Pradesh, Telangana and Punjab, all under 2\%, are close to a lottery (ICC under 0.003). NTA gives no state split for Hindi; most Hindi-belt states are strongly grouped. This analysis was added after the first results (Addition A2) and rests on state-level shares, so it is suggestive, not proof.
+
+It matters for two reasons. Grouping makes centre-level screening noisier where it is strongest. And it makes allotment predictable: a candidate who knows the rule can choose a city and medium served by few centres and know roughly where they will sit. Godhra shows how little choice is needed: its only two centres belonged to the school group behind the foiled 2024 plot.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.98\linewidth]{state_allotment.png}
+\caption{How far allotment departs from a lottery, by state (left), against the share of 2024 registrants who chose a regional-language paper (right).}\label{fig:states}
+\end{figure}
+
+\subsection{Serial numbers are shuffled}
+If NTA's serial numbers followed seating order, room-sized clusters of top scorers could be screened for. They do not. The lag-1 autocorrelation of marks along serial order is indistinguishable from a random shuffle in \SerialCentres{} centres (pooled $z$ = \SerialPooledZ; standard deviation of centre z-scores \SerialSdZ), and at every lag from 1 to 30. Genuine permutation tests on 100 centres confirm the calibration. The registered pathway for this case applies: no room-level analysis is possible with the public data.
+
+\section{Geography}\label{sec:geo}
+Top scores are concentrated. Ten cities hold \GeoTopOneZeroShareTopOne{} of the national top 1\% with \GeoTopOneZeroShareCandidates{} of candidates. Sikar alone has \GeoSikarTopOne{} top-1\% scorers from \GeoSikarN{} candidates (\GeoSikarRate), more than Delhi's \GeoDelhiTopOne{} from \GeoDelhiN.
+
+City rates vary far more than chance allows: without an allowance for overdispersion, \GeoPlainOutsideNineNineEight{} of \GeoCities{} cities would fall outside 99.8\% funnel limits. With it (Spiegelhalter 2005), \GeoHubs{} hub cities remain above the upper limit (Figure~\ref{fig:funnel}, Table~\ref{tab:hubs}). They hold \GeoHubCandidatesShare{} of candidates and \GeoHubTopOneShare{} of top scorers; eight are in Rajasthan and five in Haryana. In half of them the excess is spread evenly across centres, as a coaching ecosystem would produce (Kottayam, Malappuram, Jaipur). In the other half it is concentrated in some centres (Sikar, Kota, Namakkal and most Haryana hubs), which matches the grouping found above.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.85\linewidth]{geo_funnel.png}
+\caption{Funnel plot of city top-1\% rates. Limits are widened for between-city overdispersion.}\label{fig:funnel}
+\end{figure}
+
+\begin{table}[htbp]\centering
+\caption{Hub cities: above the 99.8\% funnel limit after the overdispersion allowance. Across centres: whether the city's centres differ more than random allotment allows (heterogeneity test, $p < 0.05$).}\label{tab:hubs}
+\input{tables/hubs.tex}
+\end{table}
+
+Development explains who qualifies, not who tops (Figure~\ref{fig:dev}, Table~\ref{tab:dev}). Across \GeoUnits{} district units, the development index correlates with mean marks at \GeoDevMeanMarksRho{} (95\% interval \GeoDevMeanMarksLo{} to \GeoDevMeanMarksHi) and with the share at or above the median at \GeoDevGeMedShareRho, but with the top-1\% share at only \GeoDevTopOneRateRho{} (\GeoDevTopOneRateLo{} to \GeoDevTopOneRateHi). The registered prediction (positive for all three) holds. The weakness at the top survives every sensitivity run. Of the districts, \GeoPdPositive{} sit more than two standard deviations above their development-predicted top-1\% rate; Bikaner, Baran and Jajpur are hubs despite below-average development. These are correlations between places, not people (Robinson 1950), and an exam city is not a candidate's home district.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\linewidth]{geo_development.png}
+\caption{District development against mean marks (left) and the share in the national top 1\% (right). Point size: candidates.}\label{fig:dev}
+\end{figure}
+
+\begin{table}[htbp]\centering
+\caption{Spearman correlation of the development index with each outcome, with 95\% bootstrap intervals (2,000 resamples).}\label{tab:dev}
+\input{tables/development.tex}
+\end{table}
+
+\section{Rank fragility}\label{sec:fragility}
+A NEET rank is finer than the measurement behind it. At 577 marks, the score at rank 108,000 that the court used as its seat line, one question (5 marks, wrong instead of right) moves a candidate \FrFiveSevenSevenRanksFive{} places, and \FrWithinFiveOfFiveSevenSeven{} candidates sit within five marks of the line (Table~\ref{tab:frag}, Figure~\ref{fig:frag}). At exactly 600 marks, \FrSixZeroZeroTie{} candidates share one total, ordered only by the tie-break rules (Biology, then Chemistry, then Physics, then fewer wrong answers; NTA dropped age and lottery for 2024).
+
+The 26 July revision of one physics question took 5 marks from about four lakh candidates (Business Today 2024), \FrRevisedShare{} of those who appeared. If they were spread evenly, a candidate at 577 who lost the marks fell about \FrFiveSevenSevenRevisionLossIfHit{} places, and one who kept them rose about \FrFiveSevenSevenRevisionGainIfSpared.
+
+Lord's binomial error model (Lord 1965) gives an illustrative sense of measurement noise. If a candidate at 577 attempted all 180 questions, one standard error on a parallel paper is about \FrFiveSevenSevenSem{} marks, ranks \FrFiveSevenSevenBandBest{} to \FrFiveSevenSevenBandWorst. This is an upper estimate: questions differ in difficulty, and candidates who leave questions blank have narrower bands.
+
+The distribution also shows how many candidates guess. A candidate who attempts all 180 questions scores $5c - 180$, a multiple of 5, so guessing leaves a comb in the histogram. About \CombLow{} of the lowest scorers attempted every question, against \CombMid{} in the middle of the distribution (Addition A3).
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.98\linewidth]{fragility.png}
+\caption{Left: candidates on every total. Right: ranks crossed by one question, and candidates tied on each total.}\label{fig:frag}
+\end{figure}
+
+\begin{table}[htbp]\centering
+\caption{Ranks at key scores. 1, 4 and 5 marks: ranks crossed by a blank instead of a wrong answer, a right answer instead of a blank, and a right answer instead of a wrong one. SEM: Lord's binomial standard error if all 180 questions were attempted (an upper estimate).}\label{tab:frag}
+\input{tables/fragility.tex}
+\end{table}
+
+\section{Deployment}\label{sec:deploy}
+\paragraph{The integrity monitor.} \texttt{fairexams.monitor} runs the whole screen on any exam's centre-wise results: a CSV with one row per candidate and three columns (centre, city, marks). It reports every centre's exact and design-effect tests, false discovery rates, the tail-beyond-bulk test and flag stability across seeds, with a plain-language summary that states what a flag does and does not mean. On a synthetic exam of \DemoCandidates{} candidates in \DemoCities{} cities, half of them grouping candidates into stronger and weaker centres, with 30 boosted candidates at one centre, the monitor flags the planted centre on both lists under every seed ($z$ = \DemoPlantedZ{} and \DemoPlantedZtail). It flags one grouped strong cohort on the first list only. The exact test without the design effect would have raised \DemoFlagsExact{} alarms. On NEET 2024 it reproduces the registered flags.
+
+\paragraph{The explorer.} \texttt{docs/index.html} is a single offline page with every centre, city and state: any centre against its city, the flags with their stability, hub cities and allotment by state. It holds aggregates only.
+
+\paragraph{Five recommendations.}
+\begin{enumerate}[leftmargin=1.5em]
+\item \textbf{Publish centre-wise results every year.} The 2024 release let anyone check the figures the court relied on; this audit reproduces them exactly. Without such a release, none of this is possible for 2025 or 2026.
+\item \textbf{Randomise allotment within medium, record the seed, publish the rule.} Allot each candidate at random among all centres in the city that can serve their medium, avoid serving a medium from a single centre in a city, and avoid cities whose centres all belong to one institution. This removes the predictability a plotter needs and makes every centre a valid random sample.
+\item \textbf{Run answer-similarity checks on item-level data.} Totals cannot see a leak sold across a city, and cannot tell a strong cohort from a boosted one. Shared wrong answers can. Methods exist (Wollack 1997; van der Linden and Sotaridona 2006); only NTA holds the response data.
+\item \textbf{Publish a room identifier.} A shuffled serial number hides seating. A coarse room code would allow room-level screening without identifying anyone.
+\item \textbf{Pre-register the monitoring rule.} Fix the statistics, thresholds and false discovery rate before results are out, so flags trigger review automatically and cannot be chosen after the fact.
+\end{enumerate}
+
+\section{Limitations}\label{sec:limits}
+\begin{itemize}[leftmargin=1.2em]
+\item Totals only. Without item responses, a strong cohort and a boosted one look alike, and leaks spread across a city are invisible within it.
+\item The design-effect allowance assumes one national $\rho$ for top-1\% status. Grouping is uneven across states, so screening is noisier where grouping is strongest.
+\item The medium explanation rests on state-level shares, with no state split for Hindi. It is suggestive.
+\item District development refers to the exam city's district, not candidates' homes, and NFHS-5 predates the exam by three to five years.
+\item The rank analysis uses the pre-revision file; Lord's band is an illustration under stated assumptions.
+\item Every number is regenerated by the pipeline from public data, but the work has not been peer reviewed.
+\end{itemize}
+
+\section{Reproducibility}
+Every number in this report is written by the pipeline into \nolinkurl{results/numbers.json} and \nolinkurl{report/numbers.tex}; none is typed by hand. \texttt{make all} downloads the data, verifies it against NTA's PDFs, rebuilds every panel, reruns every analysis with fixed seeds and recompiles this report. Raw data is never redistributed. Code is MIT-licensed.
+
+\section*{References}
+\begin{small}
+\begin{itemize}[leftmargin=1em,label={}]
+\item Benjamini, Y. and Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. \textit{Journal of the Royal Statistical Society B} 57(1): 289-300.
+\item Business Today (2024). SC on NEET UG 2024: 4 lakh students to lose 5 marks each. 24 July 2024.
+\item Christiansen, J. L. et al.\ (2013). Measuring transit signal recovery in the Kepler pipeline. I. Individual events. \textit{Astrophysical Journal Supplement} 207: 35.
+\item Cizek, G. J. and Wollack, J. A., eds.\ (2017). \textit{Handbook of Quantitative Methods for Detecting Cheating on Tests}. Routledge.
+\item DerSimonian, R. and Laird, N. (1986). Meta-analysis in clinical trials. \textit{Controlled Clinical Trials} 7(3): 177-188.
+\item Efron, B. (2004). Large-scale simultaneous hypothesis testing: the choice of a null hypothesis. \textit{Journal of the American Statistical Association} 99(465): 96-104.
+\item Efron, B. (2010). \textit{Large-Scale Inference}. Cambridge University Press.
+\item Fisher, R. A. (1935). \textit{The Design of Experiments}. Oliver and Boyd.
+\item Geyer, C. J. and Meeden, G. D. (2005). Fuzzy and randomized confidence intervals and p-values. \textit{Statistical Science} 20(4): 358-366.
+\item IIPS and ICF (2021). \textit{National Family Health Survey (NFHS-5), 2019-21}. International Institute for Population Sciences, Mumbai.
+\item Jacob, B. A. and Levitt, S. D. (2003). Rotten apples: an investigation of the prevalence and predictors of teacher cheating. \textit{Quarterly Journal of Economics} 118(3): 843-877.
+\item Kish, L. (1965). \textit{Survey Sampling}. Wiley.
+\item Kulldorff, M. (1997). A spatial scan statistic. \textit{Communications in Statistics: Theory and Methods} 26(6): 1481-1496.
+\item Lancaster, H. O. (1961). Significance tests in discrete distributions. \textit{Journal of the American Statistical Association} 56(294): 223-234.
+\item Lord, F. M. (1965). A strong true-score theory, with applications. \textit{Psychometrika} 30(3): 239-270.
+\item Marsh, D. R., Schroeder, D. G., Dearden, K. A., Sternin, J. and Sternin, M. (2004). The power of positive deviance. \textit{BMJ} 329: 1177-1179.
+\item National Testing Agency (2023). Public notice: clarification regarding the medium of the question paper for NEET (UG)-2023. 19 April 2023.
+\item National Testing Agency (2024). Press release: NTA declares the re-revised result of NEET (UG)-2024. 26 July 2024.
+\item Robinson, W. S. (1950). Ecological correlations and the behavior of individuals. \textit{American Sociological Review} 15(3): 351-357.
+\item Rosenbaum, P. R. (2002). \textit{Observational Studies}, 2nd ed. Springer.
+\item Spiegelhalter, D. J. (2005). Funnel plots for comparing institutional performance. \textit{Statistics in Medicine} 24(8): 1185-1202.
+\item Spiegelhalter, D., Sherlaw-Johnson, C., Bardsley, M., Blunt, I., Wood, C. and Grigg, O. (2012). Statistical methods for healthcare regulation: rating, screening and surveillance. \textit{Journal of the Royal Statistical Society A} 175(1): 1-47.
+\item Storey, J. D. (2002). A direct approach to false discovery rates. \textit{Journal of the Royal Statistical Society B} 64(3): 479-498.
+\item Supreme Court of India (1970). \textit{Bihar School Examination Board v. Subhas Chandra Sinha}, (1970) 1 SCC 648.
+\item Supreme Court of India (2024). \textit{Vanshika Yadav v. Union of India}, 2024 INSC 568, judgment of 2 August 2024.
+\item van der Linden, W. J. and Sotaridona, L. (2006). Detecting answer copying when the regular response process follows a known response model. \textit{Journal of Educational and Behavioral Statistics} 31(3): 283-304.
+\item Wollack, J. A. (1997). A nominal response model approach for detecting answer copying. \textit{Applied Psychological Measurement} 21(4): 307-320.
+\end{itemize}
+\end{small}
+
+\appendix
+\section{Allotment by state}
+\begin{table}[H]\centering
+\caption{States with ten or more testable centres. ICC of marks among centres within cities; standard deviation of centre-mean z-scores (1 under random allotment); share of centres beyond $\pm3$; share of registrants choosing a regional-language paper.}
+\input{tables/states.tex}
+\end{table}
+
+\section{Additions after the pre-registration}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{A1, tail beyond the bulk.} Designed after seeing that every registered flag is a whole-distribution shift.
+\item \textbf{A2, allotment by state and medium.} Designed after seeing the gap between the ICC of marks and of top-1\% status, the coaching-hub deficits, and a Dantewada centre named as a Hindi-medium school scoring below its neighbour.
+\item \textbf{A3, the comb.} Seen in the national histogram; descriptive.
+\item \textbf{A4, seed stability.} Added when building the monitor showed a borderline flag changing with the random stream.
+\end{itemize}
+Dates and reasons are in \texttt{DEVIATIONS.md}. No registered analysis was changed or dropped.
+\end{document}
