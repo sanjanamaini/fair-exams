@@ -35,6 +35,7 @@ fragility:
 
 report:
 	$(PY) -m fairexams.demo
+	$(PY) -m fairexams.examples
 	$(PY) tool/build_explorer.py
 	$(PY) -m fairexams.numbers
 	$(PY) -m fairexams.report_tables
