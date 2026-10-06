@@ -1,0 +1,553 @@
+city_id,state,city,nfhs_state,districts,kind,N
+0,ANDAMAN AND NICOBAR ISLANDS (UT),PORT BLAIR,Andaman Nicobar Islands,South Andaman,town,1025
+1,ANDHRA PRADESH,ANANTAPUR,Andhra Pradesh,Anantapur,exact,2476
+2,ANDHRA PRADESH,BHIMAVARAM,Andhra Pradesh,West Godavari,town,929
+3,ANDHRA PRADESH,CHIRALA,Andhra Pradesh,Prakasam,town,507
+4,ANDHRA PRADESH,CHITTOOR,Andhra Pradesh,Chittoor,exact,772
+5,ANDHRA PRADESH,ELURU,Andhra Pradesh,West Godavari,town,1320
+6,ANDHRA PRADESH,GOOTY,Andhra Pradesh,Anantapur,town,290
+7,ANDHRA PRADESH,GUDUR,Andhra Pradesh,Sri Potti Sriramulu Nellore,town,362
+8,ANDHRA PRADESH,GUNTUR,Andhra Pradesh,Guntur,exact,3933
+9,ANDHRA PRADESH,KADAPA,Andhra Pradesh,Y.S.R.,alias,1933
+10,ANDHRA PRADESH,KAKINADA,Andhra Pradesh,East Godavari,town,3020
+11,ANDHRA PRADESH,KURNOOL,Andhra Pradesh,Kurnool,exact,4838
+12,ANDHRA PRADESH,MACHILIPATNAM,Andhra Pradesh,Krishna,town,639
+13,ANDHRA PRADESH,MANGALAGIRI,Andhra Pradesh,Guntur,town,302
+14,ANDHRA PRADESH,NANDYAL,Andhra Pradesh,Kurnool,town,1315
+15,ANDHRA PRADESH,NARASARAOPET,Andhra Pradesh,Guntur,town,810
+16,ANDHRA PRADESH,NELLORE,Andhra Pradesh,Sri Potti Sriramulu Nellore,alias,3296
+17,ANDHRA PRADESH,ONGOLE,Andhra Pradesh,Prakasam,town,1603
+18,ANDHRA PRADESH,PRODDATUR,Andhra Pradesh,Y.S.R.,town,591
+19,ANDHRA PRADESH,RAJAHMUNDRY,Andhra Pradesh,East Godavari,town,2911
+20,ANDHRA PRADESH,SRIKAKULAM,Andhra Pradesh,Srikakulam,exact,1727
+21,ANDHRA PRADESH,TADEPALLIGUDEM,Andhra Pradesh,West Godavari,town,297
+22,ANDHRA PRADESH,TANUKU,Andhra Pradesh,West Godavari,town,1007
+23,ANDHRA PRADESH,TENALI,Andhra Pradesh,Guntur,town,363
+24,ANDHRA PRADESH,TIRUPATHI,Andhra Pradesh,Chittoor,town,4568
+25,ANDHRA PRADESH,VIJAYAWADA,Andhra Pradesh,Krishna,town,14493
+26,ANDHRA PRADESH,VISAKHAPATNAM,Andhra Pradesh,Visakhapatnam,exact,7861
+27,ANDHRA PRADESH,VIZIANAGARAM,Andhra Pradesh,Vizianagaram,exact,1683
+28,ARUNACHAL PRADESH,ITANAGAR/NAHARLAGUN,Arunachal Pradesh,Papum Pare,town,3769
+29,ARUNACHAL PRADESH,NAMSAI,Arunachal Pradesh,Namsai,exact,454
+30,ARUNACHAL PRADESH,PASIGHAT,Arunachal Pradesh,East Siang,town,551
+31,ASSAM,BAKSA,Assam,Baksa,exact,343
+32,ASSAM,BARPETA,Assam,Barpeta,exact,4291
+33,ASSAM,DARRANG (MANGALDOI),Assam,Darrang,exact,1313
+34,ASSAM,DHUBRI,Assam,Dhubri,exact,2549
+35,ASSAM,DIBRUGARH,Assam,Dibrugarh,exact,3895
+36,ASSAM,GOALPARA,Assam,Goalpara,exact,1507
+37,ASSAM,GOLAGHAT,Assam,Golaghat,exact,685
+38,ASSAM,GUWAHATI,Assam,Kamrup Metropolitan,town,13003
+39,ASSAM,HAILAKANDI,Assam,Hailakandi,exact,989
+40,ASSAM,JORHAT,Assam,Jorhat,exact,1950
+41,ASSAM,LAKHIMPUR,Assam,Lakhimpur,exact,2055
+42,ASSAM,NAGAON,Assam,Nagaon,exact,3712
+43,ASSAM,NALBARI,Assam,Nalbari,exact,1428
+44,ASSAM,SILCHAR,Assam,Cachar,town,2996
+45,ASSAM,SIVASAGAR,Assam,Sivasagar,exact,828
+46,ASSAM,TEZPUR,Assam,Sonitpur,town,2109
+47,ASSAM,UDALGURI,Assam,Udalguri,exact,620
+48,BIHAR,ARARIA,Bihar,Araria,exact,1186
+49,BIHAR,ARRAH,Bihar,Bhojpur,town,1824
+50,BIHAR,ARWAL,Bihar,Arwal,exact,281
+51,BIHAR,AURANGABAD (BR),Bihar,Aurangabad,exact,1963
+52,BIHAR,BANKA,Bihar,Banka,exact,516
+53,BIHAR,BEGUSARAI,Bihar,Begusarai,exact,3319
+54,BIHAR,BETTIAH,Bihar,Pashchim Champaran,town,3767
+55,BIHAR,BHABUA,Bihar,Kaimur (Bhabua),alias,970
+56,BIHAR,BHAGALPUR,Bihar,Bhagalpur,exact,5071
+57,BIHAR,BUXAR,Bihar,Buxer,alias,1151
+58,BIHAR,DARBHANGA,Bihar,Darbhanga,exact,7403
+59,BIHAR,GAYA,Bihar,Gaya,exact,5913
+60,BIHAR,GOPALGANJ,Bihar,Gopalganj,exact,3325
+61,BIHAR,HAJIPUR,Bihar,Vaishali,town,3152
+62,BIHAR,JAMUI,Bihar,Jamui,exact,627
+63,BIHAR,JEHANABAD,Bihar,Jehanabad,exact,1178
+64,BIHAR,KATIHAR,Bihar,Katihar,exact,1820
+65,BIHAR,KHAGARIA,Bihar,Khagaria,exact,984
+66,BIHAR,LAKHISARAI,Bihar,Lakhisarai,exact,759
+67,BIHAR,MADHEPURA,Bihar,Madhepura,exact,1743
+68,BIHAR,MADHUBANI,Bihar,Madhubani,exact,2706
+69,BIHAR,MOTIHARI,Bihar,Purba Champaran,town,5116
+70,BIHAR,MUNGER,Bihar,Munger,exact,999
+71,BIHAR,MUZAFFARPUR,Bihar,Muzaffarpur,exact,7157
+72,BIHAR,NALANDA,Bihar,Nalanda,exact,3333
+73,BIHAR,NAWADA,Bihar,Nawada,exact,1043
+74,BIHAR,PATNA,Bihar,Patna,exact,48643
+75,BIHAR,PURNEA,Bihar,Purnia,alias,3743
+76,BIHAR,SAMASTIPUR,Bihar,Samastipur,exact,3757
+77,BIHAR,SASARAM,Bihar,Rohtas,town,2984
+78,BIHAR,SHEIKHPURA,Bihar,Sheikhpura,exact,312
+79,BIHAR,SITAMARHI,Bihar,Sitamarhi,exact,2696
+80,BIHAR,SIWAN,Bihar,Siwan,exact,5226
+81,BIHAR,SUPAUL,Bihar,Supaul,exact,1165
+82,BIHAR,VAISHALI,Bihar,Vaishali,exact,361
+83,CHANDIGARH(UT),CHANDIGARH/MOHALI,Punjab,Sahibzada Ajit Singh Nagar,partial,3530
+84,CHHATTISGARH,AMBIKAPUR,Chhattisgarh,Surguja,town,4601
+85,CHHATTISGARH,BALOD,Chhattisgarh,Balod,exact,391
+86,CHHATTISGARH,BHILAI NAGAR/DURG,Chhattisgarh,Durg,exact,8016
+87,CHHATTISGARH,BIJAPUR,Chhattisgarh,Bijapur,exact,180
+88,CHHATTISGARH,BILASPUR (CG),Chhattisgarh,Bilaspur,exact,7584
+89,CHHATTISGARH,DANTEWADA,Chhattisgarh,Dantewada,exact,766
+90,CHHATTISGARH,DHAMTARI,Chhattisgarh,Dhamtari,exact,1109
+91,CHHATTISGARH,JAGDALPUR,Chhattisgarh,Bastar,town,1436
+92,CHHATTISGARH,JANJGIR,Chhattisgarh,Janjgir - Champa,alias,1373
+93,CHHATTISGARH,KANKER,Chhattisgarh,Uttar Bastar Kanker,alias,1339
+94,CHHATTISGARH,KONDAGAON,Chhattisgarh,Kodagaon,alias,497
+95,CHHATTISGARH,KORBA,Chhattisgarh,Korba,exact,1704
+96,CHHATTISGARH,MAHASAMUND,Chhattisgarh,Mahasamund,exact,1049
+97,CHHATTISGARH,MANENDRAGARH,Chhattisgarh,Koriya,town,525
+98,CHHATTISGARH,NARAYANPUR,Chhattisgarh,Narayanpur,exact,186
+99,CHHATTISGARH,RAIGARH,Chhattisgarh,Raigarh,exact,2251
+100,CHHATTISGARH,RAIPUR,Chhattisgarh,Raipur,exact,9114
+101,CHHATTISGARH,RAJNANDGAON,Chhattisgarh,Rajnandgaon,exact,1853
+102,CHHATTISGARH,SUKMA,Chhattisgarh,Sukma,exact,267
+103,DADRA AND NAGAR HAVELI (UT),SILVASSA,Dadra Nagar Haveli Daman Diu,Dadra & Nagar Haveli,town,1207
+104,DAMAN AND DIU (UT),DAMAN,Dadra Nagar Haveli Daman Diu,Daman,exact,508
+105,DAMAN AND DIU (UT),DIU,Dadra Nagar Haveli Daman Diu,Diu,exact,261
+106,DELHI,DELHI/NEW DELHI,NCT Delhi,Central;East;New Delhi;North;North East;North West;Shahdara;South;South East;South West;West,multi,66090
+107,GOA,PANAJI/MADGAON/MARGAO,Goa,North Goa;South Goa,multi,3612
+108,GOA,PONDA,Goa,North Goa,town,1318
+109,GUJARAT,AHMEDABAD,Gujarat,Ahmedabad,exact,11659
+110,GUJARAT,AMRELI,Gujarat,Amreli,exact,1021
+111,GUJARAT,ANAND,Gujarat,Anand,exact,2283
+112,GUJARAT,BALASINOR,Gujarat,Mahisagar,town,515
+113,GUJARAT,BANASKANTHA,Gujarat,Banaskantha,exact,5191
+114,GUJARAT,BHARUCH,Gujarat,Bharuch,exact,2148
+115,GUJARAT,BHAVNAGAR,Gujarat,Bhavnagar,exact,5800
+116,GUJARAT,BHUJ,Gujarat,Kachchh,town,877
+117,GUJARAT,BOTAD,Gujarat,Botad,exact,571
+118,GUJARAT,DAHOD,Gujarat,Dahod,exact,2031
+119,GUJARAT,GANDHIDHAM,Gujarat,Kachchh,town,632
+120,GUJARAT,GANDHINAGAR,Gujarat,Gandhinagar,exact,3147
+121,GUJARAT,GODHRA,Gujarat,Panchmahal,town,2484
+122,GUJARAT,HIMATNAGAR,Gujarat,Sabarkantha,town,2457
+123,GUJARAT,JAMNAGAR,Gujarat,Jamnagar,exact,2188
+124,GUJARAT,JUNAGADH,Gujarat,Junagadh,exact,2262
+125,GUJARAT,KADI,Gujarat,Mahesana,town,256
+126,GUJARAT,KHEDA,Gujarat,Kheda,exact,494
+127,GUJARAT,MEHSANA,Gujarat,Mahesana,alias,1898
+128,GUJARAT,MODASA,Gujarat,Aravali,town,1339
+129,GUJARAT,NARMADA,Gujarat,Narmada,exact,385
+130,GUJARAT,NAVSARI,Gujarat,Navsari,exact,2916
+131,GUJARAT,PATAN,Gujarat,Patan,exact,1809
+132,GUJARAT,PORBANDAR,Gujarat,Porbandar,exact,288
+133,GUJARAT,RAJKOT,Gujarat,Rajkot,exact,7159
+134,GUJARAT,SURAT,Gujarat,Surat,exact,11456
+135,GUJARAT,SURENDRANAGAR,Gujarat,Surendranagar,exact,1247
+136,GUJARAT,VADODARA,Gujarat,Vadodara,exact,6233
+137,GUJARAT,VALSAD/VAPI,Gujarat,Valsad,exact,3260
+138,GUJARAT,VERAVAL,Gujarat,Gir Somnath,town,1387
+139,GUJARAT,VYARA,Gujarat,Tapi,town,1559
+140,HARYANA,AMBALA,Haryana,Ambala,exact,2597
+141,HARYANA,BHIWANI,Haryana,Bhiwani,exact,3649
+142,HARYANA,FARIDABAD,Haryana,Faridabad,exact,5597
+143,HARYANA,GURUGRAM,Haryana,Gurgaon,alias,6369
+144,HARYANA,HISSAR,Haryana,Hisar,alias,6613
+145,HARYANA,JHAJJAR,Haryana,Jhajjar,exact,1374
+146,HARYANA,JIND,Haryana,Jind,exact,1995
+147,HARYANA,KAITHAL,Haryana,Kaithal,exact,1298
+148,HARYANA,KARNAL,Haryana,Karnal,exact,2366
+149,HARYANA,KURUKSHETRA,Haryana,Kurukshetra,exact,1795
+150,HARYANA,MAHENDRAGARH,Haryana,Mahendragarh,exact,2834
+151,HARYANA,MEWAT,Haryana,Mewat,exact,1294
+152,HARYANA,PALWAL,Haryana,Palwal,exact,2516
+153,HARYANA,PANIPAT,Haryana,Panipat,exact,2150
+154,HARYANA,REWARI,Haryana,Rewari,exact,3187
+155,HARYANA,ROHTAK,Haryana,Rohtak,exact,4163
+156,HARYANA,SIRSA,Haryana,Sirsa,exact,1736
+157,HARYANA,SONIPAT,Haryana,Sonipat,exact,1842
+158,HARYANA,YAMUNA NAGAR,Haryana,Yamunanagar,exact,1489
+159,HIMACHAL PRADESH,BILASPUR (HP),Himachal Pradesh,Bilaspur,exact,1410
+160,HIMACHAL PRADESH,CHAMBA,Himachal Pradesh,Chamba,exact,664
+161,HIMACHAL PRADESH,HAMIRPUR (HP),Himachal Pradesh,Hamirpur,exact,3002
+162,HIMACHAL PRADESH,KANGRA/PALAMPUR,Himachal Pradesh,Kangra,exact,4243
+163,HIMACHAL PRADESH,KULLU,Himachal Pradesh,Kullu,exact,726
+164,HIMACHAL PRADESH,MANDI,Himachal Pradesh,Mandi,exact,1998
+165,HIMACHAL PRADESH,SHIMLA,Himachal Pradesh,Shimla,exact,4098
+166,HIMACHAL PRADESH,SIRMAUR,Himachal Pradesh,Sirmaur,exact,515
+167,HIMACHAL PRADESH,SOLAN,Himachal Pradesh,Solan,exact,822
+168,HIMACHAL PRADESH,UNA,Himachal Pradesh,Una,exact,1586
+169,JAMMU AND KASHMIR,ANANTNAG,Jammu Kashmir,Anantnag,exact,6936
+170,JAMMU AND KASHMIR,BADGAM,Jammu Kashmir,Badgam,exact,1434
+171,JAMMU AND KASHMIR,BARAMULLA,Jammu Kashmir,Baramula,alias,3492
+172,JAMMU AND KASHMIR,JAMMU,Jammu Kashmir,Jammu,exact,12895
+173,JAMMU AND KASHMIR,KATHUA,Jammu Kashmir,Kathua,exact,1109
+174,JAMMU AND KASHMIR,KUPWARA,Jammu Kashmir,Kupwara,exact,1899
+175,JAMMU AND KASHMIR,PULWAMA,Jammu Kashmir,Pulwama,exact,2948
+176,JAMMU AND KASHMIR,SAMBA,Jammu Kashmir,Samba,exact,887
+177,JAMMU AND KASHMIR,SRINAGAR (J AND K),Jammu Kashmir,Srinagar,exact,14910
+178,JAMMU AND KASHMIR,UDHAMPUR,Jammu Kashmir,Udhampur,exact,1043
+179,JHARKHAND,BOKARO,Jharkhand,Bokaro,exact,2785
+180,JHARKHAND,CHAIBASA,Jharkhand,Pashchimi Singhbhum,town,546
+181,JHARKHAND,CHATRA,Jharkhand,Chatra,exact,305
+182,JHARKHAND,DEOGHAR (JH),Jharkhand,Deoghar,exact,1250
+183,JHARKHAND,DHANBAD,Jharkhand,Dhanbad,exact,3921
+184,JHARKHAND,DUMKA,Jharkhand,Dumka,exact,822
+185,JHARKHAND,GARHWA,Jharkhand,Garhwa,exact,869
+186,JHARKHAND,GIRIDIH,Jharkhand,Giridih,exact,1086
+187,JHARKHAND,GODDA,Jharkhand,Godda,exact,879
+188,JHARKHAND,GUMLA,Jharkhand,Gumla,exact,265
+189,JHARKHAND,HAZARIBAGH,Jharkhand,Hazaribagh,exact,2733
+190,JHARKHAND,JAMSHEDPUR,Jharkhand,Purbi Singhbhum,town,3739
+191,JHARKHAND,KHUNTI,Jharkhand,Khunti,exact,120
+192,JHARKHAND,KODERMA,Jharkhand,Kodarma,alias,727
+193,JHARKHAND,LATEHAR,Jharkhand,Latehar,exact,97
+194,JHARKHAND,LOHARDAGA,Jharkhand,Lohardaga,exact,153
+195,JHARKHAND,PAKUR,Jharkhand,Pakur,exact,437
+196,JHARKHAND,PALAMU,Jharkhand,Palamu,exact,1507
+197,JHARKHAND,RAMGARH,Jharkhand,Ramgarh,exact,850
+198,JHARKHAND,RANCHI,Jharkhand,Ranchi,exact,10758
+199,JHARKHAND,SAHIBGANJ,Jharkhand,Sahibganj,exact,479
+200,JHARKHAND,SIMDEGA,Jharkhand,Simdega,exact,76
+201,KARNATAKA,BAGALKOT,Karnataka,Bagalkot,exact,4209
+202,KARNATAKA,BALLARI,Karnataka,Bellary,alias,4151
+203,KARNATAKA,BELAGAVI (BELGAUM),Karnataka,Belgaum,exact,7853
+204,KARNATAKA,BENGALURU- RURAL,Karnataka,Bangalore Rural,alias,1983
+205,KARNATAKA,BENGALURU- URBAN,Karnataka,Bangalore,alias,29126
+206,KARNATAKA,BIDAR,Karnataka,Bidar,exact,8165
+207,KARNATAKA,CHAMARAJNAGAR,Karnataka,Chamarajanagar,alias,861
+208,KARNATAKA,CHIKABALLAPUR,Karnataka,Chikkaballapura,alias,3639
+209,KARNATAKA,CHIKMAGALUR,Karnataka,Chikmagalur,exact,1294
+210,KARNATAKA,CHITRADURGA,Karnataka,Chitradurga,exact,2869
+211,KARNATAKA,DAVANGERE,Karnataka,Davanagere,alias,7933
+212,KARNATAKA,DHARWAD,Karnataka,Dharwad,exact,4394
+213,KARNATAKA,GADAG,Karnataka,Gadag,exact,1829
+214,KARNATAKA,GULBARGA/KALABURGI,Karnataka,Gulbarga,exact,9102
+215,KARNATAKA,HASSAN,Karnataka,Hassan,exact,3352
+216,KARNATAKA,HAVERI,Karnataka,Haveri,exact,2314
+217,KARNATAKA,HUBLI,Karnataka,Dharwad,town,4041
+218,KARNATAKA,KARWAR,Karnataka,Uttara Kannada,town,420
+219,KARNATAKA,KODAGU,Karnataka,Kodagu,exact,483
+220,KARNATAKA,KOLAR,Karnataka,Kolar,exact,3944
+221,KARNATAKA,KOPPAL,Karnataka,Koppal,exact,3745
+222,KARNATAKA,MANDYA,Karnataka,Mandya,exact,1914
+223,KARNATAKA,MANGALURU (MANGALORE),Karnataka,Dakshina Kannada,town,9324
+224,KARNATAKA,MYSURU (MYSORE),Karnataka,Mysore,exact,7551
+225,KARNATAKA,RAICHUR,Karnataka,Raichur,exact,3798
+226,KARNATAKA,RAMANAGARA,Karnataka,Ramanagara,exact,1326
+227,KARNATAKA,SHIVAMOGA (SHIMOGA),Karnataka,Shimoga,exact,4538
+228,KARNATAKA,TUMAKURU,Karnataka,Tumkur,alias,4799
+229,KARNATAKA,TUMKUR,Karnataka,Tumkur,exact,116
+230,KARNATAKA,UDUPI/MANIPAL,Karnataka,Udupi,exact,3081
+231,KARNATAKA,VIJAYAPURA,Karnataka,Bijapur,alias,6965
+232,KARNATAKA,YADGIR,Karnataka,Yadgir,exact,1778
+233,KERALA,ALAPPUZHA/CHENGANNUR,Kerala,Alappuzha,exact,9148
+234,KERALA,ANGAMALY,Kerala,Ernakulam,town,3400
+235,KERALA,ERNAKULAM/MOOVATTUPUZHA,Kerala,Ernakulam,exact,11281
+236,KERALA,IDUKKI,Kerala,Idukki,exact,2234
+237,KERALA,KANNUR,Kerala,Kannur,exact,7697
+238,KERALA,KASARAGOD,Kerala,Kasaragod,exact,2660
+239,KERALA,KOLLAM,Kerala,Kollam,exact,13646
+240,KERALA,KOTTAYAM,Kerala,Kottayam,exact,12443
+241,KERALA,KOZHIKODE/CALICUT,Kerala,Kozhikode,exact,16627
+242,KERALA,MALAPPURAM,Kerala,Malappuram,exact,14818
+243,KERALA,PALAKKAD,Kerala,Palakkad,exact,6106
+244,KERALA,PATHANAMTHITTA,Kerala,Pathanamthitta,exact,5256
+245,KERALA,PAYYANUR,Kerala,Kannur,town,1342
+246,KERALA,THIRUVANANTHAPURAM,Kerala,Thiruvananthapuram,exact,16779
+247,KERALA,THRISSUR,Kerala,Thrissur,exact,12404
+248,KERALA,WAYANAD,Kerala,Wayanad,exact,2705
+249,LADAKH(UT),KARGIL,Ladakh,Kargil,exact,365
+250,LADAKH(UT),LEH,Ladakh,Leh(Ladakh),alias,350
+251,LAKSHADWEEP (UT),KAVARATTI,,,none,167
+252,MADHYA PRADESH,ASHOK NAGAR,Madhya Pradesh,Ashoknagar,exact,809
+253,MADHYA PRADESH,BALAGHAT,Madhya Pradesh,Balaghat,exact,4152
+254,MADHYA PRADESH,BARWANI,Madhya Pradesh,Barwani,exact,3876
+255,MADHYA PRADESH,BETUL,Madhya Pradesh,Betul,exact,3529
+256,MADHYA PRADESH,BHIND,Madhya Pradesh,Bhind,exact,729
+257,MADHYA PRADESH,BHOPAL,Madhya Pradesh,Bhopal,exact,15902
+258,MADHYA PRADESH,CHHATARPUR,Madhya Pradesh,Chhatarpur,exact,2398
+259,MADHYA PRADESH,CHHINDWARA,Madhya Pradesh,Chhindwara,exact,4389
+260,MADHYA PRADESH,DAMOH,Madhya Pradesh,Damoh,exact,1185
+261,MADHYA PRADESH,DATIA,Madhya Pradesh,Datia,exact,818
+262,MADHYA PRADESH,DEWAS,Madhya Pradesh,Dewas,exact,1881
+263,MADHYA PRADESH,DHAR,Madhya Pradesh,Dhar,exact,1835
+264,MADHYA PRADESH,GUNA,Madhya Pradesh,Guna,exact,1839
+265,MADHYA PRADESH,GWALIOR,Madhya Pradesh,Gwalior,exact,9701
+266,MADHYA PRADESH,HOSHANGABAD,Madhya Pradesh,Hoshangabad,exact,1238
+267,MADHYA PRADESH,INDORE,Madhya Pradesh,Indore,exact,29245
+268,MADHYA PRADESH,JABALPUR,Madhya Pradesh,Jabalpur,exact,12424
+269,MADHYA PRADESH,KHANDWA,Madhya Pradesh,Khandwa (East Nimar),alias,2744
+270,MADHYA PRADESH,KHARGONE (WEST NIMAR),Madhya Pradesh,Khargone (West Nimar),exact,2881
+271,MADHYA PRADESH,MANDSAUR,Madhya Pradesh,Mandsaur,exact,1505
+272,MADHYA PRADESH,MORENA,Madhya Pradesh,Morena,exact,1922
+273,MADHYA PRADESH,NEEMUCH,Madhya Pradesh,Neemuch,exact,1001
+274,MADHYA PRADESH,RAJGARH,Madhya Pradesh,Rajgarh,exact,1693
+275,MADHYA PRADESH,RATLAM,Madhya Pradesh,Ratlam,exact,3555
+276,MADHYA PRADESH,REWA,Madhya Pradesh,Rewa,exact,5559
+277,MADHYA PRADESH,SAGAR,Madhya Pradesh,Sagar,exact,2999
+278,MADHYA PRADESH,SATNA,Madhya Pradesh,Satna,exact,2977
+279,MADHYA PRADESH,SINGRAULI,Madhya Pradesh,Singrauli,exact,1251
+280,MADHYA PRADESH,UJJAIN,Madhya Pradesh,Ujjain,exact,4621
+281,MADHYA PRADESH,VIDISHA,Madhya Pradesh,Vidisha,exact,1580
+282,MAHARASHTRA,AHMEDNAGAR,Maharashtra,Ahmadnagar,alias,6891
+283,MAHARASHTRA,AKOLA,Maharashtra,Akola,exact,8755
+284,MAHARASHTRA,AMRAVATI,Maharashtra,Amravati,exact,5842
+285,MAHARASHTRA,AURANGABAD (MR),Maharashtra,Aurangabad,exact,21514
+286,MAHARASHTRA,BEED,Maharashtra,Bid,alias,6846
+287,MAHARASHTRA,BHANDARA,Maharashtra,Bhandara,exact,2428
+288,MAHARASHTRA,BULDHANA,Maharashtra,Buldana,alias,5261
+289,MAHARASHTRA,CHANDRAPUR,Maharashtra,Chandrapur,exact,4188
+290,MAHARASHTRA,DHULE,Maharashtra,Dhule,exact,4237
+291,MAHARASHTRA,GADCHIROLI,Maharashtra,Gadchiroli,exact,1991
+292,MAHARASHTRA,GONDIA,Maharashtra,Gondiya,alias,2759
+293,MAHARASHTRA,JALGAON,Maharashtra,Jalgaon,exact,5825
+294,MAHARASHTRA,KOLHAPUR,Maharashtra,Kolhapur,exact,7182
+295,MAHARASHTRA,LATUR,Maharashtra,Latur,exact,24611
+296,MAHARASHTRA,MALEGAON,Maharashtra,Nashik,town,2161
+297,MAHARASHTRA,MUMBAI,Maharashtra,Mumbai;Mumbai Suburban,multi,27560
+298,MAHARASHTRA,NAGPUR,Maharashtra,Nagpur,exact,15675
+299,MAHARASHTRA,NANDED,Maharashtra,Nanded,exact,21929
+300,MAHARASHTRA,NANDURBAR,Maharashtra,Nandurbar,exact,4020
+301,MAHARASHTRA,NASHIK,Maharashtra,Nashik,exact,10909
+302,MAHARASHTRA,NAVI MUMBAI,Maharashtra,Thane,partial,6984
+303,MAHARASHTRA,OSMANABAD,Maharashtra,Osmanabad,exact,2431
+304,MAHARASHTRA,PALGHAR,Maharashtra,Palghar,exact,4417
+305,MAHARASHTRA,PARBHANI,Maharashtra,Parbhani,exact,5538
+306,MAHARASHTRA,PUNE,Maharashtra,Pune,exact,22889
+307,MAHARASHTRA,RAIGAD,Maharashtra,Raigarh,alias,1171
+308,MAHARASHTRA,RATNAGIRI,Maharashtra,Ratnagiri,exact,1327
+309,MAHARASHTRA,SANGLI,Maharashtra,Sangli,exact,5283
+310,MAHARASHTRA,SATARA,Maharashtra,Satara,exact,4592
+311,MAHARASHTRA,SINDHUDURG,Maharashtra,Sindhudurg,exact,715
+312,MAHARASHTRA,SOLAPUR,Maharashtra,Solapur,exact,7536
+313,MAHARASHTRA,THANE,Maharashtra,Thane,exact,12753
+314,MAHARASHTRA,WARDHA,Maharashtra,Wardha,exact,2476
+315,MAHARASHTRA,WASHIM,Maharashtra,Washim,exact,3191
+316,MAHARASHTRA,YAVATMAL,Maharashtra,Yavatmal,exact,3358
+317,MANIPUR,CHANDEL,Manipur,Chandel,exact,161
+318,MANIPUR,CHURACHANDPUR,Manipur,Churachandpur,exact,643
+319,MANIPUR,IMPHAL,Manipur,Imphal East;Imphal West,multi,8142
+320,MEGHALAYA,EAST KHASI HILLS,Meghalaya,East Khasi Hills,exact,155
+321,MEGHALAYA,JOWAI,Meghalaya,West Jaintia Hills,town,423
+322,MEGHALAYA,RI BHOI,Meghalaya,Ribhoi,exact,62
+323,MEGHALAYA,SHILLONG,Meghalaya,East Khasi Hills,town,2176
+324,MEGHALAYA,TURA,Meghalaya,West Garo Hills,town,941
+325,MIZORAM,AIZAWL,Mizoram,Aizawl,exact,2569
+326,NAGALAND,DIMAPUR,Nagaland,Dimapur,exact,1996
+327,NAGALAND,KOHIMA,Nagaland,Kohima,exact,1709
+328,ODISHA,ANGUL,Odisha,Anugul,alias,1781
+329,ODISHA,BALANGIR,Odisha,Balangir,exact,2500
+330,ODISHA,BALASORE (BALESWAR),Odisha,Baleshwar,alias,4542
+331,ODISHA,BARAGARH,Odisha,Bargarh,alias,1745
+332,ODISHA,BARIPADA/MAYURBANJ,Odisha,Mayurbhanj,alias,2337
+333,ODISHA,BERHAMPUR/GANJAM,Odisha,Ganjam,exact,5900
+334,ODISHA,BHADRAK,Odisha,Bhadrak,exact,2292
+335,ODISHA,BHAWANIPATNA / KALAHANDI,Odisha,Kalahandi,exact,1369
+336,ODISHA,BHUBANESWAR,Odisha,Khordha,town,15653
+337,ODISHA,CUTTACK,Odisha,Cuttack,exact,6436
+338,ODISHA,DHENKANAL,Odisha,Dhenkanal,exact,1187
+339,ODISHA,JAGATSINGHPUR,Odisha,Jagatsinghapur,alias,1111
+340,ODISHA,JAJPUR,Odisha,Jajapur,alias,2595
+341,ODISHA,JEYPORE (ODISHA),Odisha,Koraput,town,1038
+342,ODISHA,JHARSUGUDA,Odisha,Jharsuguda,exact,1193
+343,ODISHA,KENDRAPARA,Odisha,Kendrapara,exact,1555
+344,ODISHA,KENDUJHAR (KEONJHAR),Odisha,Kendujhar,exact,1703
+345,ODISHA,MALKANGIRI,Odisha,Malkangiri,exact,366
+346,ODISHA,NAWARANGPUR,Odisha,Nabarangapur,alias,634
+347,ODISHA,NUAPADA,Odisha,Nuapada,exact,679
+348,ODISHA,PARALAKHEMUNDI (GAJAPATI),Odisha,Gajapati,exact,287
+349,ODISHA,PHULBANI (KANDHAMAL),Odisha,Kandhamal,exact,621
+350,ODISHA,PURI,Odisha,Puri,exact,1098
+351,ODISHA,RAIRANGPUR,Odisha,Mayurbhanj,town,201
+352,ODISHA,RAYAGADA,Odisha,Rayagada,exact,573
+353,ODISHA,ROURKELA,Odisha,Sundargarh,town,2270
+354,ODISHA,SAMBALPUR,Odisha,Sambalpur,exact,2652
+369,PUDUCHERRY(UT),KARAIKAL,Puducherry,Karaikal,exact,682
+370,PUDUCHERRY(UT),MAHE,Puducherry,Mahe,exact,190
+371,PUDUCHERRY(UT),PUDUCHERRY,Puducherry,Puducherry,exact,4816
+372,PUDUCHERRY(UT),YANAM,Puducherry,Yanam,exact,122
+373,PUNJAB,AMRITSAR,Punjab,Amritsar,exact,3039
+374,PUNJAB,BHATINDA,Punjab,Bathinda,alias,2710
+375,PUNJAB,FARIDKOT,Punjab,Faridkot,exact,522
+376,PUNJAB,FAZILKA,Punjab,Fazilka,exact,672
+377,PUNJAB,FIROZPUR,Punjab,Firozpur,exact,582
+378,PUNJAB,GURDASPUR,Punjab,Gurdaspur,exact,1300
+379,PUNJAB,HOSHIARPUR,Punjab,Hoshiarpur,exact,1189
+380,PUNJAB,JALANDHAR,Punjab,Jalandhar,exact,2669
+381,PUNJAB,LUDHIANA,Punjab,Ludhiana,exact,3967
+382,PUNJAB,MOGA,Punjab,Moga,exact,587
+383,PUNJAB,PATHANKOT,Punjab,Pathankot,exact,1114
+384,PUNJAB,PATIALA/FATEHGARH SAHIB,Punjab,Patiala,exact,2568
+385,PUNJAB,RUPNAGAR,Punjab,Rupnagar,exact,837
+386,PUNJAB,SAHIBZADA AJIT SINGH NAGAR,Punjab,Sahibzada Ajit Singh Nagar,exact,3008
+387,PUNJAB,SANGRUR,Punjab,Sangrur,exact,1306
+388,PUNJAB,SRI MUKTSAR SAHIB,Punjab,Muktsar,alias,503
+389,RAJASTHAN,AJMER,Rajasthan,Ajmer,exact,5752
+390,RAJASTHAN,ALWAR,Rajasthan,Alwar,exact,7861
+391,RAJASTHAN,BARAN,Rajasthan,Baran,exact,2845
+392,RAJASTHAN,BARMER,Rajasthan,Barmer,exact,2590
+393,RAJASTHAN,BHARATPUR,Rajasthan,Bharatpur,exact,3290
+394,RAJASTHAN,BHILWARA,Rajasthan,Bhilwara,exact,2164
+395,RAJASTHAN,BIKANER,Rajasthan,Bikaner,exact,5923
+396,RAJASTHAN,CHITTORGARH,Rajasthan,Chittaurgarh,alias,1507
+397,RAJASTHAN,CHURU,Rajasthan,Churu,exact,2763
+398,RAJASTHAN,DAUSA,Rajasthan,Dausa,exact,3252
+399,RAJASTHAN,DHOLPUR,Rajasthan,Dhaulpur,alias,1694
+400,RAJASTHAN,HANUMANGARH,Rajasthan,Hanumangarh,exact,1844
+401,RAJASTHAN,JAIPUR,Rajasthan,Jaipur,exact,55124
+402,RAJASTHAN,JAISALMER,Rajasthan,Jaisalmer,exact,316
+403,RAJASTHAN,JHUNJHUNU,Rajasthan,Jhunjhunun,alias,4953
+404,RAJASTHAN,JODHPUR,Rajasthan,Jodhpur,exact,14332
+405,RAJASTHAN,KARAULI,Rajasthan,Karauli,exact,3070
+406,RAJASTHAN,KOTA,Rajasthan,Kota,exact,27118
+407,RAJASTHAN,NAGAUR,Rajasthan,Nagaur,exact,2713
+408,RAJASTHAN,PALI,Rajasthan,Pali,exact,2046
+409,RAJASTHAN,SAWAI MADHOPUR,Rajasthan,Sawai Madhopur,exact,2542
+410,RAJASTHAN,SIKAR,Rajasthan,Sikar,exact,27216
+411,RAJASTHAN,SIROHI,Rajasthan,Sirohi,exact,1309
+412,RAJASTHAN,SRIGANGANAGAR,Rajasthan,Ganganagar,alias,1718
+413,RAJASTHAN,UDAIPUR,Rajasthan,Udaipur,exact,9188
+414,SIKKIM,GANGTOK,Sikkim,East District,town,1288
+415,SIKKIM,WEST SIKKIM,Sikkim,West District,alias,156
+416,TAMIL NADU,ARIYALUR,Tamil Nadu,Ariyalur,exact,2297
+417,TAMIL NADU,CHENGALPET,Tamil Nadu,Kancheepuram,town,3056
+418,TAMIL NADU,CHENNAI,Tamil Nadu,Chennai,exact,23327
+419,TAMIL NADU,COIMBATORE,Tamil Nadu,Coimbatore,exact,7127
+420,TAMIL NADU,CUDDALORE,Tamil Nadu,Cuddalore,exact,4974
+421,TAMIL NADU,DHARMAPURI,Tamil Nadu,Dharmapuri,exact,5621
+422,TAMIL NADU,DINDIGUL,Tamil Nadu,Dindigul,exact,3276
+423,TAMIL NADU,ERODE,Tamil Nadu,Erode,exact,4597
+424,TAMIL NADU,KANCHIPURAM,Tamil Nadu,Kancheepuram,alias,2147
+425,TAMIL NADU,KANYAKUMARI/NAGERCOIL,Tamil Nadu,Kanniyakumari,alias,4980
+426,TAMIL NADU,KARUR,Tamil Nadu,Karur,exact,1878
+427,TAMIL NADU,KRISHNAGIRI,Tamil Nadu,Krishnagiri,exact,5006
+428,TAMIL NADU,MADURAI,Tamil Nadu,Madurai,exact,9141
+429,TAMIL NADU,NAGAPATTINAM,Tamil Nadu,Nagapattinam,exact,1529
+430,TAMIL NADU,NAMAKKAL,Tamil Nadu,Namakkal,exact,6180
+431,TAMIL NADU,PUDUKKOTTAI,Tamil Nadu,Pudukkottai,exact,3236
+432,TAMIL NADU,RAMANATHAPURAM,Tamil Nadu,Ramanathapuram,exact,2154
+433,TAMIL NADU,SALEM,Tamil Nadu,Salem,exact,10792
+434,TAMIL NADU,SIVAGANGA,Tamil Nadu,Sivaganga,exact,1874
+435,TAMIL NADU,THANJAVUR,Tamil Nadu,Thanjavur,exact,5188
+436,TAMIL NADU,THIRUVALLUR,Tamil Nadu,Thiruvallur,exact,3165
+437,TAMIL NADU,THOOTHUKUDI,Tamil Nadu,Thoothukkudi,alias,2092
+438,TAMIL NADU,TIRUCHIRAPPALLI,Tamil Nadu,Tiruchirappalli,exact,8283
+439,TAMIL NADU,TIRUNELVELI,Tamil Nadu,Tirunelveli,exact,7191
+440,TAMIL NADU,TIRUPPUR,Tamil Nadu,Tiruppur,exact,3432
+441,TAMIL NADU,TIRUVANNAMALAI,Tamil Nadu,Tiruvannamalai,exact,3847
+442,TAMIL NADU,TIRUVARUR,Tamil Nadu,Thiruvarur,alias,1553
+443,TAMIL NADU,UDHAGAMANDALAM,Tamil Nadu,The Nilgiris,town,788
+444,TAMIL NADU,VELLORE,Tamil Nadu,Vellore,exact,6788
+445,TAMIL NADU,VILUPPURAM,Tamil Nadu,Viluppuram,exact,4854
+446,TAMIL NADU,VIRUDHUNAGAR,Tamil Nadu,Virudhunagar,exact,3331
+447,TELANGANA,ADILABAD,Telangana,Adilabad,exact,1785
+448,TELANGANA,ASIFABAD,Telangana,Komaram Bheem Asifabad,alias,299
+449,TELANGANA,BHUPALAPALLY,Telangana,Jayashankar Bhupalapally,alias,358
+450,TELANGANA,GADWAL,Telangana,Jogulamba Gadwal,alias,1091
+451,TELANGANA,HAYATHNAGAR,Telangana,Ranga Reddy,town,5545
+452,TELANGANA,HYDERABAD/SECUNDERABAD,Telangana,Hyderabad,exact,28455
+453,TELANGANA,JAGTIAL,Telangana,Jagitial,alias,831
+454,TELANGANA,JANGAON,Telangana,Jangoan,alias,689
+455,TELANGANA,KARIMNAGAR,Telangana,Karimnagar,exact,3466
+456,TELANGANA,KHAMMAM,Telangana,Khammam,exact,3179
+457,TELANGANA,KOTHAGUDEM,Telangana,Bhadradri Kothagudem,alias,1125
+458,TELANGANA,MAHABUBABAD,Telangana,Mahabubabad,exact,685
+459,TELANGANA,MAHBUBNAGAR,Telangana,Mahabubnagar,alias,4786
+460,TELANGANA,MANCHERIAL,Telangana,Mancherial,exact,1354
+461,TELANGANA,MEDAK,Telangana,Medak,exact,494
+462,TELANGANA,MEDCHAL,Telangana,Medchal-Malkajgiri,alias,3895
+463,TELANGANA,NALGONDA,Telangana,Nalgonda,exact,2262
+464,TELANGANA,NIZAMABAD,Telangana,Nizamabad,exact,3654
+465,TELANGANA,RANGA REDDY,Telangana,Ranga Reddy,exact,2109
+466,TELANGANA,SANGAREDDY,Telangana,Sangareddy,exact,3556
+467,TELANGANA,SIDDIPET,Telangana,Siddipet,exact,1068
+468,TELANGANA,SURYAPET,Telangana,Suryapet,exact,996
+469,TELANGANA,VIKARABAD,Telangana,Vikarabad,exact,1123
+470,TELANGANA,WARANGAL,Telangana,Warangal Urban,town,5087
+471,TRIPURA,AGARTALA,Tripura,West Tripura,town,4888
+472,TRIPURA,DHALAI,Tripura,Dhalai,exact,210
+473,UTTAR PRADESH,AGRA,Uttar Pradesh,Agra,exact,9785
+474,UTTAR PRADESH,ALIGARH,Uttar Pradesh,Aligarh,exact,9909
+475,UTTAR PRADESH,AMBEDKAR NAGAR,Uttar Pradesh,Ambedkar Nagar,exact,4058
+476,UTTAR PRADESH,AMETHI,Uttar Pradesh,Amethi,exact,750
+477,UTTAR PRADESH,AYODHYA,Uttar Pradesh,Faizabad,alias,4376
+478,UTTAR PRADESH,AZAMGARH,Uttar Pradesh,Azamgarh,exact,7987
+479,UTTAR PRADESH,BAHJOI,Uttar Pradesh,Sambhal,town,1787
+480,UTTAR PRADESH,BAHRAICH,Uttar Pradesh,Bahraich,exact,2959
+481,UTTAR PRADESH,BALLIA,Uttar Pradesh,Ballia,exact,2500
+482,UTTAR PRADESH,BALRAMPUR,Uttar Pradesh,Balrampur,exact,1334
+483,UTTAR PRADESH,BANDA,Uttar Pradesh,Banda,exact,1637
+484,UTTAR PRADESH,BARABANKI,Uttar Pradesh,Bara Banki,exact,2543
+485,UTTAR PRADESH,BAREILLY,Uttar Pradesh,Bareilly,exact,10875
+486,UTTAR PRADESH,BASTI,Uttar Pradesh,Basti,exact,5926
+487,UTTAR PRADESH,BIJNOR,Uttar Pradesh,Bijnor,exact,6147
+488,UTTAR PRADESH,BUDAUN,Uttar Pradesh,Budaun,exact,3009
+489,UTTAR PRADESH,BULANDSHAHR,Uttar Pradesh,Bulandshahr,exact,3235
+490,UTTAR PRADESH,CHANDAULI,Uttar Pradesh,Chandauli,exact,1500
+491,UTTAR PRADESH,CHITRAKOOT,Uttar Pradesh,Chitrakoot,exact,808
+492,UTTAR PRADESH,DEORIA,Uttar Pradesh,Deoria,exact,4730
+493,UTTAR PRADESH,ETAWAH,Uttar Pradesh,Etawah,exact,3525
+494,UTTAR PRADESH,FATEHPUR,Uttar Pradesh,Fatehpur,exact,1341
+495,UTTAR PRADESH,FIROZABAD,Uttar Pradesh,Firozabad,exact,2476
+496,UTTAR PRADESH,GHAZIABAD,Uttar Pradesh,Ghaziabad,exact,9480
+497,UTTAR PRADESH,GHAZIPUR,Uttar Pradesh,Ghazipur,exact,2543
+498,UTTAR PRADESH,GONDA,Uttar Pradesh,Gonda,exact,3488
+499,UTTAR PRADESH,GORAKHPUR,Uttar Pradesh,Gorakhpur,exact,19304
+500,UTTAR PRADESH,HAPUR (PANCHSHEEL NAGAR),Uttar Pradesh,Hapur,exact,2015
+501,UTTAR PRADESH,HARDOI,Uttar Pradesh,Hardoi,exact,2126
+502,UTTAR PRADESH,HATHRAS,Uttar Pradesh,Mahamaya Nagar,alias,1061
+503,UTTAR PRADESH,JALAUN (ORAI),Uttar Pradesh,Jalaun,exact,1314
+504,UTTAR PRADESH,JAUNPUR,Uttar Pradesh,Jaunpur,exact,7216
+505,UTTAR PRADESH,JHANSI,Uttar Pradesh,Jhansi,exact,3205
+506,UTTAR PRADESH,KANPUR,Uttar Pradesh,Kanpur Nagar,town,24527
+507,UTTAR PRADESH,KAUSHAMBI,Uttar Pradesh,Kaushambi,exact,986
+508,UTTAR PRADESH,KUSHINAGAR,Uttar Pradesh,Kushinagar,exact,4045
+509,UTTAR PRADESH,LAKHINPUR KHERI,Uttar Pradesh,Kheri,alias,3094
+510,UTTAR PRADESH,LALITPUR,Uttar Pradesh,Lalitpur,exact,784
+511,UTTAR PRADESH,LUCKNOW,Uttar Pradesh,Lucknow,exact,34238
+512,UTTAR PRADESH,MAINPURI,Uttar Pradesh,Mainpuri,exact,2666
+513,UTTAR PRADESH,MATHURA,Uttar Pradesh,Mathura,exact,3051
+514,UTTAR PRADESH,MAU,Uttar Pradesh,Mau,exact,4849
+515,UTTAR PRADESH,MEERUT,Uttar Pradesh,Meerut,exact,9308
+516,UTTAR PRADESH,MIRZAPUR,Uttar Pradesh,Mirzapur,exact,2056
+517,UTTAR PRADESH,MORADABAD,Uttar Pradesh,Moradabad,exact,11358
+518,UTTAR PRADESH,MUZAFFARNAGAR,Uttar Pradesh,Muzaffarnagar,exact,6251
+519,UTTAR PRADESH,NAUGARH,Uttar Pradesh,Siddharthnagar,town,2040
+520,UTTAR PRADESH,NOIDA/GREATER NOIDA,Uttar Pradesh,Gautam Buddha Nagar,town,9642
+521,UTTAR PRADESH,PRATAPGARH,Uttar Pradesh,Pratapgarh,exact,2348
+522,UTTAR PRADESH,PRAYAGRAJ,Uttar Pradesh,Prayagraj,exact,19760
+523,UTTAR PRADESH,RAI BAREILLY,Uttar Pradesh,Rae Bareli,alias,2277
+524,UTTAR PRADESH,RAMPUR,Uttar Pradesh,Rampur,exact,2843
+525,UTTAR PRADESH,SAHARANPUR,Uttar Pradesh,Saharanpur,exact,5561
+526,UTTAR PRADESH,SHAHJAHANPUR,Uttar Pradesh,Shahjahanpur,exact,3013
+527,UTTAR PRADESH,SHRAVASTI,Uttar Pradesh,Shrawasti,alias,439
+528,UTTAR PRADESH,SITAPUR,Uttar Pradesh,Sitapur,exact,2241
+529,UTTAR PRADESH,SONBHADRA,Uttar Pradesh,Sonbhadra,exact,1559
+530,UTTAR PRADESH,SULTANPUR,Uttar Pradesh,Sultanpur,exact,2840
+531,UTTAR PRADESH,UNNAO,Uttar Pradesh,Unnao,exact,1153
+532,UTTAR PRADESH,VARANASI,Uttar Pradesh,Varanasi,exact,24753
+533,UTTARAKHAND,ALMORA,Uttarakhand,Almora,exact,560
+534,UTTARAKHAND,CHAMOLI,Uttarakhand,Chamoli,exact,186
+535,UTTARAKHAND,DEHRADUN,Uttarakhand,Dehradun,exact,7692
+536,UTTARAKHAND,HALDWANI,Uttarakhand,Nainital,town,4305
+537,UTTARAKHAND,HARIDWAR,Uttarakhand,Hardwar,alias,2321
+538,UTTARAKHAND,NAINITAL,Uttarakhand,Nainital,exact,218
+539,UTTARAKHAND,NEW TEHRI,Uttarakhand,Tehri Garhwal,town,211
+540,UTTARAKHAND,PANTNAGAR,Uttarakhand,Udham Singh Nagar,town,999
+541,UTTARAKHAND,PAURI GARHWAL,Uttarakhand,Pauri Garhwal,exact,499
+542,UTTARAKHAND,PITTHORAGARH,Uttarakhand,Pithoragarh,alias,506
+543,UTTARAKHAND,ROORKEE,Uttarakhand,Hardwar,town,2842
+544,UTTARAKHAND,UDHAM SINGH NAGAR,Uttarakhand,Udham Singh Nagar,exact,1418
+545,UTTARAKHAND,UTTARKASHI,Uttarakhand,Uttarkashi,exact,232
+546,WEST BENGAL,ASANSOL,West Bengal,Paschim Barddhaman,town,2994
+547,WEST BENGAL,BALURGHAT,West Bengal,Dakshin Dinajpur,town,891
+548,WEST BENGAL,BANKURA,West Bengal,Bankura,exact,5290
+549,WEST BENGAL,BURDWAN (BARDHAMAN),West Bengal,Purba Barddhaman,town,5090
+550,WEST BENGAL,DARJEELING,West Bengal,Darjeeling,exact,259
+551,WEST BENGAL,DURGAPUR,West Bengal,Paschim Barddhaman,town,3496
+552,WEST BENGAL,HOOGHLY,West Bengal,Hugli,alias,5244
+553,WEST BENGAL,HOWRAH,West Bengal,Haora,alias,7962
+554,WEST BENGAL,JALPAIGURI,West Bengal,Jalpaiguri,exact,2102
+555,WEST BENGAL,KALYANI,West Bengal,Nadia,town,6083
+556,WEST BENGAL,KHARAGPUR,West Bengal,Paschim Medinipur,town,7278
+557,WEST BENGAL,KOLKATA,West Bengal,Kolkata,exact,21883
+558,WEST BENGAL,MALDA,West Bengal,Maldah,alias,9995
+559,WEST BENGAL,MURSHIDABAD,West Bengal,Murshidabad,exact,9000
+560,WEST BENGAL,NADIA,West Bengal,Nadia,exact,1749
+561,WEST BENGAL,NORTH 24 PARGANAS,West Bengal,North Twenty Four Parganas,alias,7568
+562,WEST BENGAL,PURBA MEDINIPUR,West Bengal,Purba Medinipur,exact,4740
+563,WEST BENGAL,SILIGURI,West Bengal,Darjeeling,partial,6549
+564,WEST BENGAL,SOUTH 24 PARGANAS,West Bengal,South Twenty Four Parganas,alias,6477
+565,WEST BENGAL,SURI,West Bengal,Birbhum,town,2673

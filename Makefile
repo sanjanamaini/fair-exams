@@ -15,6 +15,7 @@ data:
 
 panels:
 	$(PY) -m fairexams.panels
+	$(PY) -m fairexams.districts
 
 integrity:
 	$(PY) -m fairexams.screen

@@ -1,0 +1,16 @@
+{
+ "map_cities": 552,
+ "map_exact": 399,
+ "map_alias": 66,
+ "map_town": 79,
+ "map_multi": 4,
+ "map_partial": 3,
+ "map_none": 1,
+ "nfhs_districts": 705,
+ "dev_pc1_share": 0.613528593472426,
+ "dev_loading_women_literate": 0.4907700993007624,
+ "dev_loading_women_school10": 0.5071977546523383,
+ "dev_loading_electricity": 0.33026629760062637,
+ "dev_loading_sanitation": 0.44978475673973156,
+ "dev_loading_clean_fuel": 0.43647794054419414
+}
