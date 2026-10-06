@@ -1,0 +1,12 @@
+{
+ "serial_centres": 4746,
+ "serial_mean_r1": -0.0023425642707860083,
+ "serial_mean_z": 0.0014502595512730328,
+ "serial_sd_z": 1.003174418052698,
+ "serial_pooled_z": 0.09991014777145711,
+ "serial_max_abs_lag_mean": 0.003471847334200968,
+ "serial_perm_centres": 100,
+ "serial_perm_share_p05": 0.08,
+ "serial_perm_sd_ratio": 0.9946802040184879,
+ "serial_pathway": "A"
+}

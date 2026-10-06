@@ -1,0 +1,9 @@
+scenario,m,injections,detect_layer2,detect_tail,detect_funnel
+random city,25,400,0.015,0.0825,0.2025
+random city,50,400,0.0125,0.15,0.4975
+random city,100,400,0.0025,0.215,0.7475
+random city,200,400,0,0.235,0.91
+"Hazaribagh, top 1%",125,400,0,0,1
+"Hazaribagh, top 10%",125,400,0,0,0
+"Patna, top 1%",30,400,0,0,0
+"Patna, top 10%",30,400,0,0,0

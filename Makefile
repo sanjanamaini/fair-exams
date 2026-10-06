@@ -19,7 +19,10 @@ panels:
 
 integrity:
 	$(PY) -m fairexams.screen
+	$(PY) -m fairexams.verify --flagged
 	$(PY) -m fairexams.serial
+	$(PY) -m fairexams.bulk
+	$(PY) -m fairexams.medium
 	$(PY) -m fairexams.inject
 	$(PY) -m fairexams.validate
 

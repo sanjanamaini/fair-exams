@@ -1,0 +1,12 @@
+{
+ "tail_delta0": 0.03772755328993226,
+ "tail_sigma0": 1.3215886133252561,
+ "tail_flags": 4,
+ "tail_flags_of_registered": 1,
+ "tail_registered_flags": 9,
+ "tail_sd_z": 1.4137343647476361,
+ "tail_corr_with_bulk_mu": -0.2078135894895738,
+ "tail_informative_centres": 1639,
+ "tail_informative_sd_z": 1.4759309820503865,
+ "tail_bh_cutoff": 3.7155951921388976e-05
+}

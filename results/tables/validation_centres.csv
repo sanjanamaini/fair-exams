@@ -1,0 +1,13 @@
+list,role,centre_code,city,centre_name,n,top1,E1,z1_adj,q_excess,q_deficit,flag_excess,flag_deficit,zmean_adj,z_tail,q_tail,city_rank_z1,n_centres_city,informative,prediction
+A,named,260402,HAZARIBAGH,OASIS SCHOOL,701,5,4.617,0.02536,1,0.9524,False,False,-0.06143,0.9728,0.9029,2,5,True,"No high flag. Beneficiaries were allotted across the city's centres by NTA, and the court's own figures show Hazaribagh below its 2022 and 2023 success rates."
+A,named,220502,GODHRA,JAY JALARAM SCHOOL,648,0,1.043,-1.762,1,0.7845,False,False,-0.6953,-0.699,0.9837,2,2,True,No high flag. The plan was foiled and the suspects' results were withheld.
+A,named,392203,SAWAI MADHOPUR,BALIKA UCCH MADHYAMIK ADARSH VIDHYA MANDIR,385,7,6.664,0.3272,1,0.974,False,False,-0.1475,-0.4852,0.9792,2,6,True,No high flag. A low flag is possible (lost time and a late second sitting).
+A,named,230701,JHAJJAR,HARDAYAL PUBLIC SCHOOL,494,2,4.314,-1.064,1,0.8682,False,False,-0.5425,-0.708,0.984,2,3,True,No high flag (the grace marks were removed before the 20 July release). A low flag is possible.
+A,named,170501,BALOD,GOVT.BOYS ADARSH HR.SEC.SCHOOL BALOD,185,0,0,-1.146,1,0.8608,False,False,2.144,-2.975,0.999,2,2,False,No high flag. A low flag is possible.
+A,ambiguous,170701,DANTEWADA,"GOVT. DANTESHWARI P.G. COLLEGE, DANTEWADA (C.G.)",417,0,0,-1.971,1,0.7764,False,False,2.894,-3.084,0.9993,2,2,False,Reported separately as ambiguous; no directional prediction.
+A,ambiguous,170702,DANTEWADA,SWAMI ATMANAND GOVT. UTKRISHT HINDI MEDIUM HIGHER SECONDARY SCHOOL DANTEWADA,349,0,0,1.132,1,0.9949,False,False,-3.129,-0.3301,0.9778,1,2,False,Reported separately as ambiguous; no directional prediction.
+A,ambiguous,330501,TURA,GOVERNMENT BOYS HIGHER SECONDARY SCHOOL,464,0,0,-0.1627,1,0.9506,False,False,0.2779,-0.6319,0.9804,2,3,False,Reported separately as ambiguous; no directional prediction.
+A,ambiguous,330502,TURA,MONTFORT SCHOOL,344,0,0,0.4793,1,0.984,False,False,-0.1751,-3.531,0.9995,1,3,False,Reported separately as ambiguous; no directional prediction.
+A,ambiguous,330503,TURA,CAPT WILLIAM'S SCH MATCHAKOLGRE,133,0,0,-0.1832,1,0.9506,False,False,-0.3105,0.1445,0.9751,3,3,False,Reported separately as ambiguous; no directional prediction.
+B,press,220701,RAJKOT,UNIT-1 SCHOOL OF ENGINEERING R.K.UNIVERSITY,1968,93,38.21,7.307,6.336e-10,1,True,False,2.003,8.327,8.285e-07,1,7,True,Not blind (flagged by others using the same data). No directional prediction.
+B,press,220705,RAJKOT,"(UNIT-2)    SCHOOL OF ENGINEERING, R.K.UNIVERSITY",973,10,18.89,-1.939,1,0.7845,False,False,-0.4733,-2.248,0.9971,5,7,True,Not blind. No directional prediction.
